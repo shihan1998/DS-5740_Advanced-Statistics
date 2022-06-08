@@ -1,0 +1,45 @@
+---
+title: "Introduction"
+author: "DS-5740 Advanced Statistics"
+format:
+  beamer:
+    theme: Warsaw
+    fonttheme: structurebold
+    keep-tex: true
+header-includes: |
+  % Title page graphic
+  \titlegraphic{\includegraphics[height = 1.75in]{./Images/probabilistic-forecasting-graph.png} \vspace{1in}}
+  
+  % Vanderbilt color scheme
+  \usepackage{xcolor}
+  \definecolor{gold}{RGB}{207,174,112}  % gold
+  \definecolor{black}{RGB}{10,10,10} % black
+  \definecolor{white}{RGB}{255,255,255} % white
+  \setbeamercolor{title}{fg = gold}
+  \setbeamercolor{title}{bg = black}
+  \setbeamercolor{normal text}{fg = black}
+  \setbeamercolor{frametitle}{fg = gold}
+  \setbeamercolor{frametitle}{bg = black}
+  \setbeamercolor{structure}{fg = gold}
+  \setbeamercolor{structure}{bg = black}
+  
+  % Other stuff
+  
+editor: visual
+---
+
+## Introduction
+
+## Outline
+
+1.  
+
+    ## Numbered bullet
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
