@@ -3,8 +3,8 @@ title: "Introduction"
 author: "DS-5740 Advanced Statistics"
 format:
   beamer:
-    theme: Warsaw
-    fonttheme: structurebold
+    theme: "Warsaw"
+    fonttheme: "structurebold"
     keep-tex: true
 header-includes: |
   % Title page graphic
@@ -22,24 +22,112 @@ header-includes: |
   \setbeamercolor{frametitle}{bg = black}
   \setbeamercolor{structure}{fg = gold}
   \setbeamercolor{structure}{bg = black}
+  \setbeamercolor{item}{fg = black}
   
   % Other stuff
+  \usepackage{amssymb}
+  \usepackage{ragged2e}
+  \usepackage{multicol}
   
 editor: visual
+output:
+  beamer_presentation:
+    theme: "Warsaw"
+    fonttheme: "structurebold"
 ---
 
-## Introduction
+## Plane Crash \| \small Intro
 
-## Outline
+```{=tex}
+\centering
+\includegraphics[height=2.5in]{./Images/dubois-plane-crash.jpg}
+```
 
-1.  
+You and your group have just survived the crash of a small plane...
 
-    ## Numbered bullet
+## Plane Crash \| \small Story
 
-## Code
+\justifying
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+Both the pilot and co-pilot were killed in the crash. It is mid-January, and you are in Northern Canada. The daily temperature is -25$^{\circ}F$ (or -32$^{\circ}C$) and the night time temperature is -40$^{\circ}F$ (or -40$^{\circ}C$). There is snow on the ground, and the countryside is wooded with several creeks criss-crossing the area. The nearest town is 20 miles away. You are all dressed in city clothes appropriate for a business meeting.
 
-```{r}
-1 + 1
+## Plane Crash \| \small Materials
+
+Your group of survivors managed to salvage the following items:
+
+```{=tex}
+\begin{multicols}{3}
+\begin{itemize}
+  \item a ball of steel wool
+  \item a small ax
+  \item a loaded .45-caliber pistol
+  \item can of Crisco shortening
+  \item newspapers (one per person)
+  \item cigarette lighter (without fluid)
+  \item extra shirt and pants for each survivor
+  \item 20 \(\displaystyle \times \) 20 ft. piece of heavy-duty canvas
+  \item a sectional air map made of plastic
+  \item one quart of 100-proof whiskey
+  \item a compass
+  \item family-size chocolate bars (one per person)
+\end{itemize}
+\end{multicols}
+```
+
+## Plane Crash \| \small Individual
+
+\justifying
+
+Rank the items according to their importance to your survival, starting with \textbf{1} for the most important item to \textbf{12} for the least important. Work quickly, alone, and \textit{don't} discuss the problem with anyone in your group. Record your rankings in the scoring table down column A labeled \textbf{Individual Ranking}.
+
+## Plane Crash \| \small Group
+
+\justifying
+
+In your group, share your top \textbf{three} most important items and explain why you think each item is important. As a group, discuss what items are most critical for survival. You should try to come to a consensus as the more everyone agrees, the more likely you and your group will survive. Once there is a consensus, record the group rankings in the scoring table down column B labeled \textbf{Group Ranking}.
+
+## Plane Crash \| \small Expert
+
+```{=tex}
+\begin{multicols}{3}
+\begin{enumerate}
+  \item cigarette lighter (without fluid)
+  \item a ball of steel wool
+  \item extra shirt and pants for each survivor
+  \item can of Crisco shortening
+  \item 20 \(\displaystyle \times \) 20 ft. piece of heavy-duty canvas
+  \item a small ax
+  \item family-size chocolate bars (one per person)
+  \item newspapers (one per person)
+  \item a loaded .45-caliber pistol
+  \item one quart of 100-proof whiskey
+  \item a compass
+  \item a sectional air map made of plastic
+\end{enumerate}
+\end{multicols}
+```
+
+## Plane Crash \| \small Scoring
+
+\centering
+
+Individual Accuracy: $|A - C|$
+
+Group Accuracy: $|B - C|$
+
+Influence: $|A - B|$
+
+## Plane Crash \| \small Survived?
+
+\centering
+
+```{=tex}
+\begin{itemize}
+  \item 0-12: Great survival skills -- rescued!
+  \item 13-24: Above average survival skills -- rescued!
+  \item 25-36: Frostbit, hungry, and tired -- rescued!
+  \item 37-48: Dehydrated and barely alive -- it was tough, but rescued!
+  \item 49-60: Rescued, but only just in time! Lost a few toes.
+  \item 61-72: Sorry, only scraps of your clothing were recovered months after the search was called off.
+\end{itemize}
 ```
