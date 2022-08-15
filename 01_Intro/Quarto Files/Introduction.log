@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.11)  8 JUN 2022 17:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.5.11)  17 JUN 2022 12:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -881,46 +881,61 @@ ef
 File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count344
 ))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2022/04/12 4.2 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count345
+\FV@InFile=\read3
+\FV@TabBox=\box77
+\c@FancyVerbLine=\count346
+\FV@StepNumber=\count347
+\FV@OutFile=\write5
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip68
+\fb@frw=\dimen297
+\fb@frh=\dimen298
+\FrameRule=\dimen299
+\FrameSep=\dimen300
+)
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
 Package: ragged2e 2021/12/15 v3.1 ragged2e Package
-\CenteringLeftskip=\skip68
-\RaggedLeftLeftskip=\skip69
-\RaggedRightLeftskip=\skip70
-\CenteringRightskip=\skip71
-\RaggedLeftRightskip=\skip72
-\RaggedRightRightskip=\skip73
-\CenteringParfillskip=\skip74
-\RaggedLeftParfillskip=\skip75
-\RaggedRightParfillskip=\skip76
-\JustifyingParfillskip=\skip77
-\CenteringParindent=\skip78
-\RaggedLeftParindent=\skip79
-\RaggedRightParindent=\skip80
-\JustifyingParindent=\skip81
+\CenteringLeftskip=\skip69
+\RaggedLeftLeftskip=\skip70
+\RaggedRightLeftskip=\skip71
+\CenteringRightskip=\skip72
+\RaggedLeftRightskip=\skip73
+\RaggedRightRightskip=\skip74
+\CenteringParfillskip=\skip75
+\RaggedLeftParfillskip=\skip76
+\RaggedRightParfillskip=\skip77
+\JustifyingParfillskip=\skip78
+\CenteringParindent=\skip79
+\RaggedLeftParindent=\skip80
+\RaggedRightParindent=\skip81
+\JustifyingParindent=\skip82
 ) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
-\c@tracingmulticols=\count345
-\mult@box=\box77
-\multicol@leftmargin=\dimen297
-\c@unbalance=\count346
-\c@collectmore=\count347
-\doublecol@number=\count348
-\multicoltolerance=\count349
-\multicolpretolerance=\count350
-\full@width=\dimen298
-\page@free=\dimen299
-\premulticols=\dimen300
-\postmulticols=\dimen301
-\multicolsep=\skip82
-\multicolbaselineskip=\skip83
-\partial@page=\box78
-\last@line=\box79
-\maxbalancingoverflow=\dimen302
-\mult@rightbox=\box80
-\mult@grightbox=\box81
-\mult@firstbox=\box82
-\mult@gfirstbox=\box83
-\@tempa=\box84
+\c@tracingmulticols=\count348
+\mult@box=\box78
+\multicol@leftmargin=\dimen301
+\c@unbalance=\count349
+\c@collectmore=\count350
+\doublecol@number=\count351
+\multicoltolerance=\count352
+\multicolpretolerance=\count353
+\full@width=\dimen302
+\page@free=\dimen303
+\premulticols=\dimen304
+\postmulticols=\dimen305
+\multicolsep=\skip83
+\multicolbaselineskip=\skip84
+\partial@page=\box79
+\last@line=\box80
+\maxbalancingoverflow=\dimen306
+\mult@rightbox=\box81
+\mult@grightbox=\box82
+\mult@firstbox=\box83
+\mult@gfirstbox=\box84
 \@tempa=\box85
 \@tempa=\box86
 \@tempa=\box87
@@ -956,42 +971,514 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \@tempa=\box117
 \@tempa=\box118
 \@tempa=\box119
-\c@minrows=\count351
-\c@columnbadness=\count352
-\c@finalcolumnbadness=\count353
-\last@try=\dimen303
-\multicolovershoot=\dimen304
-\multicolundershoot=\dimen305
-\mult@nat@firstbox=\box120
-\colbreak@box=\box121
-\mc@col@check@num=\count354
-)
+\@tempa=\box120
+\c@minrows=\count354
+\c@columnbadness=\count355
+\c@finalcolumnbadness=\count356
+\last@try=\dimen307
+\multicolovershoot=\dimen308
+\multicolundershoot=\dimen309
+\mult@nat@firstbox=\box121
+\colbreak@box=\box122
+\mc@col@check@num=\count357
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/mwe\mwe.sty
+Package: mwe 2018/03/30 v0.5 Package to support minimal working examples (MWE)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l
+3keys2e.sty (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\
+expl3.sty
+Package: expl3 2022-04-29 L3 programming layer (loader) 
+
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count355
-\l__pdf_internal_box=\box122
-) (Introduction.aux)
+\l__color_backend_stack_int=\count358
+\l__pdf_internal_box=\box123
+))
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count359
+\l__lipsum_a_int=\count360
+\l__lipsum_b_int=\count361
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.s
+ty
+Package: blindtext 2012/01/06 V2.0 blindtext-Package
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+\c@blindtext=\count362
+\c@Blindtext=\count363
+\c@blind@countparstart=\count364
+\blind@countxx=\count365
+\blindtext@numBlindtext=\count366
+\blind@countyy=\count367
+\c@blindlist=\count368
+\c@blindlistlevel=\count369
+\c@blindlist@level=\count370
+\blind@listitem=\count371
+\c@blind@listcount=\count372
+\c@blind@levelcount=\count373
+\blind@mathformula=\count374
+\blind@Mathformula=\count375
+\c@blind@randomcount=\count376
+\c@blind@randommax=\count377
+\c@blind@pangramcount=\count378
+\c@blind@pangrammax=\count379
+)) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/cabin\cabin.sty
+Package: cabin 2020/07/18 (Bob Tennent) Supports Cabin fonts for all LaTeX engi
+nes.
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.st
+y
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.te
+x
+\XKV@toks=\toks48
+\XKV@tempa@toks=\toks49
+)
+\XKV@depth=\count380
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/fontaxes\fontaxes.sty
+Package: fontaxes 2020/07/21 v1.0e Font selection axes
+LaTeX Info: Redefining \upshape on input line 29.
+LaTeX Info: Redefining \itshape on input line 31.
+LaTeX Info: Redefining \slshape on input line 33.
+LaTeX Info: Redefining \swshape on input line 35.
+LaTeX Info: Redefining \scshape on input line 37.
+LaTeX Info: Redefining \sscshape on input line 39.
+LaTeX Info: Redefining \ulcshape on input line 41.
+LaTeX Info: Redefining \textsw on input line 47.
+LaTeX Info: Redefining \textssc on input line 48.
+LaTeX Info: Redefining \textulc on input line 49.
+)) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count381
+\float@exts=\toks50
+\float@box=\box124
+\@float@everytoks=\toks51
+\@floatcapt=\box125
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/placeins\placeins.sty
+Package: placeins 2005/04/18  v 2.2
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/forest\forest.sty
+Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tik
+z.sty
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.st
+y
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
+leshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box126
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
+leplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
+comp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen310
+\pgf@nodesepend=\dimen311
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgf
+comp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.
+sty
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffo
+r.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.co
+de.tex)
+\pgffor@iter=\dimen312
+\pgffor@skip=\dimen313
+\pgffor@stack=\toks52
+\pgffor@toks=\toks53
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz\tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
+braryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count382
+\pgfplotmarksize=\dimen314
+)
+\tikz@lastx=\dimen315
+\tikz@lasty=\dimen316
+\tikz@lastxsaved=\dimen317
+\tikz@lastysaved=\dimen318
+\tikz@lastmovetox=\dimen319
+\tikz@lastmovetoy=\dimen320
+\tikzleveldistance=\dimen321
+\tikzsiblingdistance=\dimen322
+\tikz@figbox=\box127
+\tikz@figbox@bg=\box128
+\tikz@tempbox=\box129
+\tikz@tempbox@bg=\box130
+\tikztreelevel=\count383
+\tikznumberofchildren=\count384
+\tikznumberofcurrentchild=\count385
+\tikz@fig@count=\count386
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
+lematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count387
+\pgfmatrixcurrentcolumn=\count388
+\pgf@matrix@numberofcolumns=\count389
+)
+\tikz@expandcount=\count390
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shape
+s\pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shape
+s\pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shape
+s\pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shape
+s\pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shape
+s\pgflibraryshapes.callouts.code.tex))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shape
+s\pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodepartlowerbox=\box131
+\pgfnodeparttwobox=\box132
+\pgfnodepartthreebox=\box133
+\pgfnodepartfourbox=\box134
+\pgfnodeparttwentybox=\box135
+\pgfnodepartnineteenbox=\box136
+\pgfnodeparteighteenbox=\box137
+\pgfnodepartseventeenbox=\box138
+\pgfnodepartsixteenbox=\box139
+\pgfnodepartfifteenbox=\box140
+\pgfnodepartfourteenbox=\box141
+\pgfnodepartthirteenbox=\box142
+\pgfnodeparttwelvebox=\box143
+\pgfnodepartelevenbox=\box144
+\pgfnodeparttenbox=\box145
+\pgfnodepartninebox=\box146
+\pgfnodeparteightbox=\box147
+\pgfnodepartsevenbox=\box148
+\pgfnodepartsixbox=\box149
+\pgfnodepartfivebox=\box150
+)))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
+braryintersections.code.tex
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
+braryfpu.code.tex)
+\pgf@intersect@solutions=\count391
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/pgfopts\pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+\pgfopts@list@add@a@toks=\toks54
+\pgfopts@list@add@b@toks=\toks55
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/elocalloc\elocalloc.s
+ty
+Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces
+.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpa
+rse.sty
+Package: xparse 2022-01-12 L3 Experimental document command parser
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/inlinedef\inlinedef.s
+ty
+Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
+\ID@toks=\toks56
+\ID@count=\count392
+)
+\ID@usercommands=\toks57
+\safeloop@depth=\count393
+\safeRKloop@depth=\count394
+\forest@temp@dimen=\dimen323
+\forest@temp@count=\count395
+\forest@n=\count396
+\forest@temp@global@count=\count397
+\forest@temp@toks=\toks58
+\forest@temparray@M=\count398
+\forest@temparray@N=\count399
+\forest@global@temparray@M=\count400
+\forest@global@temparray@N=\count401
+\forest@isnum@count=\count402
+\forest@isdim@nonintpart=\count403
+\forest@isdim@dimen=\dimen324
+\forest@sort@m=\count404
+\forest@sort@k=\count405
+\forest@sort@p=\count406
+\bracket@content=\toks59
+\bracket@afterthought=\toks60
+\forest@node@maxid=\count407
+\forest@process@left@M=\count408
+\forest@process@left@N=\count409
+\forest@process@right@M=\count410
+\forest@process@right@N=\count411
+\forest@process@saved@M=\count412
+\forest@process@saved@N=\count413
+\forest@process@result@M=\count414
+\forest@process@result@N=\count415
+\forest@process@n=\count416
+\forest@nodewalk@branch@toks=\toks61
+\forest@nodewalk@shortsteps@resolution=\toks62
+\forest@do@dynamics=\toks63
+\forest@box=\box151
+\forest@xg=\dimen325
+\forest@yg=\dimen326
+\forest@xs=\dimen327
+\forest@ys=\dimen328
+\forest@pi@toks=\toks64
+\forest@segment@toks=\toks65
+\forest@PIi@toks=\toks66
+\forest@PIii@toks=\toks67
+\forest@copy@in=\read4
+\forest@copy@out=\write6
+\forest@externalize@max@outer@n=\count417
+\forest@externalize@inner@n=\count418
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/forest\forest-lib-edg
+es.sty
+Package: forest-lib-edges 2016/12/05 v0.1.1
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@layerbox@background=\box152
+\pgf@layerboxsaved@background=\box153
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/tikzmark\tikzlibraryt
+ikzmark.code.tex
+File: tikzlibrarytikzmark.code.tex 2021/02/16 v1.10 TikZ library for marking po
+sitions in a document
+\l__sn_x_dim=\dimen329
+\l__sn_y_dim=\dimen330
+\l__sn_xa_dim=\dimen331
+\l__sn_ya_dim=\dimen332
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
+braryarrows.code.tex
+File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\arrowsize=\dimen333
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryshadows.code.tex
+File: tikzlibraryshadows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibraryfadings.code.tex
+File: tikzlibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
+braryfadings.code.tex
+File: pgflibraryfadings.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarytrees.code.tex
+File: tikzlibrarytrees.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarymindmap.code.tex
+File: tikzlibrarymindmap.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/t
+ikz/libraries\tikzlibrarydecorations.code.tex
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodu
+ledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen334
+\pgfdecoratedremainingdistance=\dimen335
+\pgfdecoratedinputsegmentcompleteddistance=\dimen336
+\pgfdecoratedinputsegmentremainingdistance=\dimen337
+\pgf@decorate@distancetomove=\dimen338
+\pgf@decorate@repeatstate=\count419
+\pgfdecorationsegmentamplitude=\dimen339
+\pgfdecorationsegmentlength=\dimen340
+)
+\tikz@lib@dec@box=\box154
+))
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgfli
+braryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowinset=\dimen341
+\pgfarrowlength=\dimen342
+\pgfarrowwidth=\dimen343
+\pgfarrowlinewidth=\dimen344
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/xkcdcolors\xkcdcolors
+.sty
+Package: xkcdcolors 2019/10/21 v1.0.1 Provide names for xkcd colors
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.s
+ty
+Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count420
+\l_MT_multwidth_dim=\dimen345
+\origjot=\skip85
+\l_MT_shortvdotswithinadjustabove_dim=\dimen346
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen347
+\l_MT_above_intertext_sep=\dimen348
+\l_MT_below_intertext_sep=\dimen349
+\l_MT_above_shortintertext_sep=\dimen350
+\l_MT_below_shortintertext_sep=\dimen351
+\xmathstrut@box=\box155
+\xmathstrut@dim=\dimen352
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/ncctools\nccmath.st
+y
+Package: nccmath 2006/01/20 v1.3 Additional Math Commands (NCC)
+\NCC@fracrulewidth=\dimen353
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen354
+\WF@size=\dimen355
+\c@WF@wrappedlines=\count421
+\WF@box=\box156
+\WF@everypar=\toks68
+Package: wrapfig 2003/01/31  v 3.6
+) (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+\CommentStream=\write7
+Excluding comment 'comment') (C:\Users\chria12\AppData\Local\Programs\MiKTeX\te
+x/latex/tools\array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen356
+\ar@mcellbox=\box157
+\extrarowheight=\dimen357
+\NC@list=\toks69
+\extratabsurround=\skip86
+\backup@length=\skip87
+\ar@cellbox=\box158
+)
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.s
+ty
+Package: tcolorbox 2022/01/07 version 5.0.2 text color boxes
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks70
+\verbatim@line=\toks71
+\verbatim@in@stream=\read5
+)
+\tcb@titlebox=\box159
+\tcb@upperbox=\box160
+\tcb@lowerbox=\box161
+\tcb@phantombox=\box162
+\c@tcbbreakpart=\count422
+\c@tcblayer=\count423
+\c@tcolorbox@number=\count424
+\tcb@temp=\box163
+\tcb@temp=\box164
+\tcb@temp=\box165
+\tcb@temp=\box166
+)
+LaTeX Font Info:    Trying to load font information for T1+Cabin-TLF on input l
+ine 236.
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/cabin\t1cabin-tlf.fd
+File: T1Cabin-TLF.fd 2020/07/15 (autoinst) Font definitions for T1/Cabin-TLF.
+)
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/n' aliased to
+(Font)              `T1/Cabin-TLF/regular/n' on input line 236.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 10.95pt on input line 236.
+(Introduction.aux)
 \openout1 = `Introduction.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 236.
+LaTeX Font Info:    ... okay on input line 236.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1030,17 +1517,17 @@ LaTeX Font Info:    ... okay on input line 120.
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count356
-\scratchdimen=\dimen306
-\scratchbox=\box123
-\nofMPsegments=\count357
-\nofMParguments=\count358
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count359
-\MPscratchDim=\dimen307
-\MPnumerator=\count360
-\makeMPintoPDFobject=\count361
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count425
+\scratchdimen=\dimen358
+\scratchbox=\box167
+\nofMPsegments=\count426
+\nofMParguments=\count427
+\everyMPshowfont=\toks72
+\MPscratchCnt=\count428
+\MPscratchDim=\dimen359
+\MPnumerator=\count429
+\makeMPintoPDFobject=\count430
+\everyMPtoPDFconversion=\toks73
 )
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
 -base.sty
@@ -1052,7 +1539,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 .cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 120.
+Package hyperref Info: Link coloring OFF on input line 236.
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1063,57 +1550,62 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count362
+\c@section@level=\count431
 )
-LaTeX Info: Redefining \ref on input line 120.
-LaTeX Info: Redefining \pageref on input line 120.
-LaTeX Info: Redefining \nameref on input line 120.
+LaTeX Info: Redefining \ref on input line 236.
+LaTeX Info: Redefining \pageref on input line 236.
+LaTeX Info: Redefining \nameref on input line 236.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 120.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 236.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 120.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 236.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 120.
+(Font)                  OT1/cmss/m/n --> OT1/Cabin-TLF/m/n on input line 236.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 120.
+(Font)                  OT1/cmss/b/n --> OT1/Cabin-TLF/b/n on input line 236.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 120.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 120.
+(Font)                  OT1/Cabin-TLF/m/n --> T1/lmr/m/n on input line 236.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 120.
+(Font)                  OT1/lmr/bx/n --> T1/Cabin-TLF/b/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 120.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 120.
+(Font)                  OT1/lmr/bx/n --> T1/Cabin-TLF/b/n on input line 236.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 120.
+(Font)                  OT1/lmss/m/n --> T1/Cabin-TLF/m/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 120.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 120.
+(Font)                  OT1/lmss/bx/n --> T1/Cabin-TLF/m/n on input line 236.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 120.
+(Font)                  OT1/lmr/m/it --> T1/Cabin-TLF/m/it on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 120.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 120.
+(Font)                  OT1/lmr/bx/it --> T1/Cabin-TLF/m/it on input line 236.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 120.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 120.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 236.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 120.
+(Font)                  T1/Cabin-TLF/m/n --> T1/Cabin-TLF/b/n on input line 236
+.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 120.
+(Font)                  T1/Cabin-TLF/m/it --> T1/Cabin-TLF/b/it on input line 2
+36.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 120.
+(Font)                  OT1/Cabin-TLF/b/n --> T1/lmr/b/n on input line 236.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 120.
+(Font)                  T1/Cabin-TLF/b/n --> T1/Cabin-TLF/b/n on input line 236
+.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 120.
+(Font)                  T1/Cabin-TLF/m/n --> T1/Cabin-TLF/b/n on input line 236
+.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 120.
+(Font)                  T1/Cabin-TLF/m/it --> T1/Cabin-TLF/b/it on input line 2
+36.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 120.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 236.
 
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/translator\translator
 -basic-dictionary-English.dict
@@ -1139,12 +1631,12 @@ Dictionary: translator-numbers-dictionary, Language: English
 -theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \microtypecontext on input line 120.
-Package microtype Info: Applying patch `item' on input line 120.
-Package microtype Info: Applying patch `toc' on input line 120.
-Package microtype Info: Applying patch `eqnum' on input line 120.
+LaTeX Info: Redefining \microtypecontext on input line 236.
+Package microtype Info: Applying patch `item' on input line 236.
+Package microtype Info: Applying patch `toc' on input line 236.
+Package microtype Info: Applying patch `eqnum' on input line 236.
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 120.
+Package microtype Warning: Unable to apply patch `footnote' on input line 236.
 
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -1152,69 +1644,121 @@ Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 120.
+LaTeX Info: Redefining \showhyphens on input line 236.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmss' (encoding: T1).
+(microtype)             `Cabin-TLF' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+\c@mv@tabular=\count432
+\c@mv@boldtabular=\count433
 (Introduction.nav)
-<./Images/probabilistic-forecasting-graph.png, id=31, 702.625pt x 434.62375pt>
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/n' aliased to
+(Font)              `T1/Cabin-TLF/regular/n' on input line 236.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 6.0pt on input line 236.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/b/n' aliased to
+(Font)              `T1/Cabin-TLF/bold/n' on input line 236.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/bold/n' will be
+(Font)              scaled to size 6.0pt on input line 236.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/b/n' aliased to
+(Font)              `T1/Cabin-TLF/bold/n' on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/bold/n' will be
+(Font)              scaled to size 10.95pt on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/b/n' aliased to
+(Font)              `T1/Cabin-TLF/bold/n' on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/bold/n' will be
+(Font)              scaled to size 14.4pt on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/n' aliased to
+(Font)              `T1/Cabin-TLF/regular/n' on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 8.0pt on input line 237.
+<./Images/probabilistic-forecasting-graph.png, id=55, 702.625pt x 434.62375pt>
 File: ./Images/probabilistic-forecasting-graph.png Graphic file (type png)
 <use ./Images/probabilistic-forecasting-graph.png>
 Package pdftex.def Info: ./Images/probabilistic-forecasting-graph.png  used on 
-input line 121.
-(pdftex.def)             Requested size: 204.4529pt x 126.47249pt.
-
-Overfull \vbox (69.22382pt too high) detected at line 121
- []
-
+input line 237.
+(pdftex.def)             Requested size: 92.1807pt x 57.02034pt.
+<./Images/ab-testing.png, id=56, 294.09875pt x 172.645pt>
+File: ./Images/ab-testing.png Graphic file (type png)
+<use ./Images/ab-testing.png>
+Package pdftex.def Info: ./Images/ab-testing.png  used on input line 237.
+(pdftex.def)             Requested size: 92.18834pt x 54.11739pt.
+<./Images/bayesian-modeling.png, id=57, 481.8pt x 288.3272pt>
+File: ./Images/bayesian-modeling.png Graphic file (type png)
+<use ./Images/bayesian-modeling.png>
+Package pdftex.def Info: ./Images/bayesian-modeling.png  used on input line 237
+.
+(pdftex.def)             Requested size: 92.18254pt x 55.16548pt.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/b/n' aliased to
+(Font)              `T1/Cabin-TLF/bold/n' on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/bold/n' will be
+(Font)              scaled to size 4.0pt on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/n' aliased to
+(Font)              `T1/Cabin-TLF/regular/n' on input line 237.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 4.0pt on input line 237.
 [1
 
 {C:/Users/chria12/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./Images/p
-robabilistic-forecasting-graph.png (PNG copy)>]
-<./Images/dubois-plane-crash.jpg, id=42, 903.375pt x 601.24625pt>
+robabilistic-forecasting-graph.png (PNG copy)> <./Images/ab-testing.png> <./Ima
+ges/bayesian-modeling.png>]
+<./Images/dubois-plane-crash.jpg, id=71, 903.375pt x 601.24625pt>
 File: ./Images/dubois-plane-crash.jpg Graphic file (type jpg)
 <use ./Images/dubois-plane-crash.jpg>
-Package pdftex.def Info: ./Images/dubois-plane-crash.jpg  used on input line 12
-9.
-(pdftex.def)             Requested size: 271.46947pt x 180.67499pt.
+Package pdftex.def Info: ./Images/dubois-plane-crash.jpg  used on input line 24
+5.
+(pdftex.def)             Requested size: 271.46947pt x 180.67801pt.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/b/n' aliased to
+(Font)              `T1/Cabin-TLF/bold/n' on input line 245.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/bold/n' will be
+(Font)              scaled to size 10.0pt on input line 245.
 [2
 
  <./Images/dubois-plane-crash.jpg>]
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 
-142.
-(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmss.fd
-File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for OT1+Cabin-TLF on input 
+line 258.
+
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/cabin\ot1cabin-tlf.fd
+File: OT1Cabin-TLF.fd 2020/07/15 (autoinst) Font definitions for OT1/Cabin-TLF.
+
 )
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmss' (encoding: OT1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-42.
+LaTeX Font Info:    Font shape `OT1/Cabin-TLF/m/n' aliased to
+(Font)              `OT1/Cabin-TLF/regular/n' on input line 258.
+LaTeX Font Info:    Font shape `OT1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 10.95pt on input line 258.
+LaTeX Font Info:    Font shape `OT1/Cabin-TLF/m/n' aliased to
+(Font)              `OT1/Cabin-TLF/regular/n' on input line 258.
+LaTeX Font Info:    Font shape `OT1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 8.0pt on input line 258.
+LaTeX Font Info:    Font shape `OT1/Cabin-TLF/m/n' aliased to
+(Font)              `OT1/Cabin-TLF/regular/n' on input line 258.
+LaTeX Font Info:    Font shape `OT1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 6.0pt on input line 258.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+58.
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-142.
+258.
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-142.
+258.
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 142.
+(Font)              <10.95> on input line 258.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 142.
+(Font)              <8> on input line 258.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 142.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 142
+(Font)              <6> on input line 258.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 258
 .
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1222,7 +1766,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 g
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 142
+LaTeX Font Info:    Trying to load font information for U+msb on input line 258
 .
 (C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1230,12 +1774,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 g
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 142.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 142.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 142.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/it' aliased to
+(Font)              `T1/Cabin-TLF/regular/it' on input line 258.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/it' will be
+(Font)              scaled to size 10.95pt on input line 258.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/it' aliased to
+(Font)              `T1/Cabin-TLF/regular/it' on input line 258.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/it' will be
+(Font)              scaled to size 8.0pt on input line 258.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/it' aliased to
+(Font)              `T1/Cabin-TLF/regular/it' on input line 258.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/it' will be
+(Font)              scaled to size 6.0pt on input line 258.
 [3
 
 ] [4
@@ -1250,36 +1800,113 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
 
 ] [9
 
+] [10
+
+] [11
+
+] [12
+
 ]
-\tf@nav=\write5
-\openout5 = `Introduction.nav'.
+File: ./Images/ab-testing.png Graphic file (type png)
+<use ./Images/ab-testing.png>
+Package pdftex.def Info: ./Images/ab-testing.png  used on input line 434.
+(pdftex.def)             Requested size: 123.11226pt x 72.27066pt.
+[13
 
-\tf@toc=\write6
-\openout6 = `Introduction.toc'.
+] [14
 
-\tf@snm=\write7
-\openout7 = `Introduction.snm'.
+]
+<./Images/r.jpg, id=175, 255.95625pt x 198.7425pt>
+File: ./Images/r.jpg Graphic file (type jpg)
+<use ./Images/r.jpg>
+Package pdftex.def Info: ./Images/r.jpg  used on input line 465.
+(pdftex.def)             Requested size: 46.5349pt x 36.13297pt.
+<./Images/windows.png, id=178, 311.1625pt x 163.61125pt>
+File: ./Images/windows.png Graphic file (type png)
+<use ./Images/windows.png>
+Package pdftex.def Info: ./Images/windows.png  used on input line 465.
+(pdftex.def)             Requested size: 103.08276pt x 54.20157pt.
+<./Images/r-studio.png, id=181, 380.42125pt x 133.49875pt>
+File: ./Images/r-studio.png Graphic file (type png)
+<use ./Images/r-studio.png>
+Package pdftex.def Info: ./Images/r-studio.png  used on input line 465.
+(pdftex.def)             Requested size: 102.9705pt x 36.13477pt.
+[15
+
+ <./Images/r.jpg> <./Images/windows.png> <./Images/r-studio.png>]
+\openout4 = `Introduction.vrb'.
+
+(Introduction.vrb
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+.
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/m/n' aliased to
+(Font)              `T1/Cabin-TLF/regular/n' on input line 28.
+LaTeX Font Info:    Font shape `T1/Cabin-TLF/regular/n' will be
+(Font)              scaled to size 10.0pt on input line 28.
+) [16
+
+] [17
+
+]
+\openout4 = `Introduction.vrb'.
+
+(Introduction.vrb
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
+13.
+(C:\Users\chria12\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)) [18
+
+]
+<Introduction_files/figure-beamer/unnamed-chunk-4-1.pdf, id=218, 680.5425pt x 4
+74.77374pt>
+File: Introduction_files/figure-beamer/unnamed-chunk-4-1.pdf Graphic file (type
+ pdf)
+<use Introduction_files/figure-beamer/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: Introduction_files/figure-beamer/unnamed-chunk-4-1.pdf
+  used on input line 559.
+(pdftex.def)             Requested size: 307.2901pt x 214.3779pt.
+[19
+
+ <./Introduction_files/figure-beamer/unnamed-chunk-4-1.pdf>]
+\tf@nav=\write8
+\openout8 = `Introduction.nav'.
+
+\tf@toc=\write9
+\openout9 = `Introduction.toc'.
+
+\tf@snm=\write10
+\openout10 = `Introduction.snm'.
 
 (Introduction.aux) ) 
 Here is how much of TeX's memory you used:
- 24788 strings out of 478619
- 493464 string characters out of 2842301
- 771150 words of memory out of 3000000
- 42288 multiletter control sequences out of 15000+600000
- 518999 words of font info for 97 fonts, out of 8000000 for 9000
+ 45388 strings out of 478619
+ 1045946 string characters out of 2842301
+ 1476676 words of memory out of 3000000
+ 62520 multiletter control sequences out of 15000+600000
+ 651499 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,122p,1011b,681s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 128i,15n,122p,1590b,850s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/enc/d
-vips/lm/lm-mathsy.enc}{C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/enc
-/dvips/lm/lm-ec.enc}<C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/lm/lmss10.pfb><C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/lm/lmssbx10.pfb><C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/lm/lmsso10.pfb><C:/Users/chria12/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/lm/lmsy10.pfb><C:/Users/chria12/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/lm/lmsy8.pfb>
-Output written on Introduction.pdf (9 pages, 214972 bytes).
+vips/lm/lm-ts1.enc}{C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/enc/dv
+ips/lm/lm-ec.enc}{C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/enc/dvip
+s/cabin/cbn_jjp77t.enc}{C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/en
+c/dvips/lm/lm-mathsy.enc}{C:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/
+enc/dvips/cabin/cbn_i3ioen.enc}<C:/Users/chria12/AppData/Local/Programs/MiKTeX/
+fonts/type1/impallari/cabin/Cabin-Bold.pfb><C:/Users/chria12/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/impallari/cabin/Cabin-Italic.pfb><C:/Users/chria12/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/impallari/cabin/Cabin-Regular.pfb><C:/Use
+rs/chria12/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/U
+sers/chria12/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/
+Users/chria12/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C
+:/Users/chria12/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtti10.pfb
+>
+Output written on Introduction.pdf (19 pages, 424250 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 30839 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 287 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 47355 words of extra memory for PDF output out of 51595 (max. 10000000)
 

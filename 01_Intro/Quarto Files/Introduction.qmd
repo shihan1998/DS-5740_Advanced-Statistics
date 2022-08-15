@@ -8,7 +8,11 @@ format:
     keep-tex: true
 header-includes: |
   % Title page graphic
-  \titlegraphic{\includegraphics[height = 1.75in]{./Images/probabilistic-forecasting-graph.png} \vspace{1in}}
+  \titlegraphic{
+    \includegraphics[width=.3\textwidth]{./Images/probabilistic-forecasting-graph.png}
+    \includegraphics[width=.3\textwidth, height=1in]{./Images/ega-network.png}
+    \includegraphics[width=.3\textwidth]{./Images/ab-testing.png}
+  }
   
   % Vanderbilt color scheme
   \usepackage{xcolor}
@@ -28,8 +32,67 @@ header-includes: |
   \usepackage{amssymb}
   \usepackage{ragged2e}
   \usepackage{multicol}
+  \usepackage{mwe}
   
-editor: visual
+  % Default setup
+  \usepackage[sfdefault]{cabin}
+  \usepackage{hyperref}
+  %\hypersetup{
+  %  colorlinks = true,
+  %  allcolors = blue
+  %}
+  \usepackage{float, placeins}
+  
+  % Additional packages
+  \usepackage[edges]{forest}
+  
+  % tikz equation packages
+  \usepackage{tikz}
+  \usetikzlibrary{backgrounds}
+  \usetikzlibrary{tikzmark}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{arrows,shapes,positioning,shadows,trees,mindmap}
+  \usetikzlibrary{arrows.meta}
+  \colorlet{linecol}{black!75}
+  \usepackage{xkcdcolors} % xkcd colors
+
+  % Basic equation packages
+  \usepackage{amsmath}
+  \usepackage{amsthm}
+  \usepackage{amssymb}
+  \usepackage{mathtools}
+  \usepackage{nccmath}
+  \usepackage{wrapfig}
+  \usepackage{comment}
+  \usepackage{blindtext}
+  \usepackage{graphicx}
+  \usepackage{xspace}
+  \usepackage{array}
+  \usepackage{ragged2e}
+  \newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+  \newcolumntype{X}[1]{>{\RaggedRight\hspace*{0pt}}p{#1}}
+  \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+
+  % Color packages
+  \usepackage{xcolor}
+  \usepackage{tcolorbox}
+  \newcommand{\highlight}[2]{\colorbox{#1!30}{$\displaystyle #2$}}
+  \newcommand{\highlightdark}[2]{\colorbox{#1!50}{$\displaystyle #2$}}
+  \renewcommand{\highlight}[2]{\colorbox{#1!30}{#2}}
+  \renewcommand{\highlightdark}[2]{\colorbox{#1!50}{#2}}
+  
+  % Define colors
+  \definecolor{red}{HTML}{F03D2D}
+  \definecolor{skyblue}{HTML}{90DDF0}
+  \definecolor{green}{HTML}{C8D96F}
+  \definecolor{orange}{HTML}{EF8A17}
+  \definecolor{yellow}{HTML}{F5C900}
+  \definecolor{purple}{HTML}{BA42C0}
+  \definecolor{teal}{HTML}{17BEBB}
+  \definecolor{greyblue}{HTML}{9BAFD9}
+  
+editor: source
 output:
   beamer_presentation:
     theme: "Warsaw"
@@ -42,7 +105,6 @@ output:
 \centering
 \includegraphics[height=2.5in]{./Images/dubois-plane-crash.jpg}
 ```
-
 You and your group have just survived the crash of a small plane...
 
 ## Plane Crash \| \small Story
@@ -73,20 +135,43 @@ Your group of survivors managed to salvage the following items:
 \end{itemize}
 \end{multicols}
 ```
+## Plane Crash \| \small Rankings
 
-## Plane Crash \| \small Individual
+\raggedright
 
-\justifying
-
-Rank the items according to their importance to your survival, starting with \textbf{1} for the most important item to \textbf{12} for the least important. Work quickly, alone, and \textit{don't} discuss the problem with anyone in your group. Record your rankings in the scoring table down column A labeled \textbf{Individual Ranking}.
-
-## Plane Crash \| \small Group
+\textbf{Group A}
 
 \justifying
 
-In your group, share your top \textbf{three} most important items and explain why you think each item is important. As a group, discuss what items are most critical for survival. You should try to come to a consensus as the more everyone agrees, the more likely you and your group will survive. Once there is a consensus, record the group rankings in the scoring table down column B labeled \textbf{Group Ranking}.
+Rank the items according to their importance to your survival, starting with \textbf{1} for the most important item to \textbf{12} for the least important. Work quickly, alone, and \textit{don't} discuss the problem with anyone in your group. Record your rankings in the scoring table down column \textbf{A} labeled \textbf{Individual Ranking}.
 
-## Plane Crash \| \small Expert
+\raggedright
+
+\textbf{Group B}
+
+\justifying
+
+As a group, discuss what items are most critical for survival. You should try to come to a consensus as the more everyone agrees, the more likely you and your group will survive. Once there is a consensus, record the group rankings in the scoring table down column \textbf{B} labeled \textbf{Group Ranking}.
+
+## Plane Crash \| \small Rankings
+
+\raggedright
+
+\textbf{Group A}
+
+\justifying
+
+As a group, discuss what items are most critical for survival. You should try to come to a consensus as the more everyone agrees, the more likely you and your group will survive. Once there is a consensus, record the group rankings in the scoring table down column \textbf{B} labeled \textbf{Group Ranking}.
+
+\raggedright
+
+\textbf{Group B}
+
+\justifying
+
+Rank the items according to their importance to your survival, starting with \textbf{1} for the most important item to \textbf{12} for the least important. Work quickly, alone, and \textit{don't} discuss the problem with anyone in your group. Record your rankings in the scoring table down column \textbf{A} labeled \textbf{Individual Ranking}.
+
+## Plane Crash \| \small Expert Rankings
 
 ```{=tex}
 \begin{multicols}{3}
@@ -106,16 +191,28 @@ In your group, share your top \textbf{three} most important items and explain wh
 \end{enumerate}
 \end{multicols}
 ```
-
 ## Plane Crash \| \small Scoring
 
 \centering
 
-Individual Accuracy: $|A - C|$
+```{=tex}
+\begin{figure}
+\begin{equation*}
+Individual \ Accuracy: \tikzmarknode{absolute_left}{\highlight{red}{$|$}} A - C \tikzmarknode{absolute_right}{\highlight{red}{$|$}}
+\end{equation*}
 
-Group Accuracy: $|B - C|$
+\begin{tikzpicture}[overlay,remember picture,>=stealth,nodes={align=left,inner ysep=1pt},<-]
+    % absolute
+    \path (absolute_left.north) ++ (0.50,0.85) node[anchor=north,color=red] (scalep){\textbf{absolute value}};
+    \draw [<->,color=red] (absolute_left.north) -- ++(0,0.33) -| node[] {} (absolute_right.north);
+\end{tikzpicture}
+\vspace{-1.1cm}
+\label{fig:fig1}
+\end{figure}
+```
+$Group \ Accuracy: |B - C|$
 
-Influence: $|A - B|$
+$Influence: |A - B|$
 
 ## Plane Crash \| \small Survived?
 
@@ -130,4 +227,431 @@ Influence: $|A - B|$
   \item 49-60: Rescued, but only just in time! Lost a few toes.
   \item 61-72: Sorry, only scraps of your clothing were recovered months after the search was called off.
 \end{itemize}
+```
+## Plane Crash \| \small Discussion
+
+\justifying
+
+Who did better: you or the group?
+
+## Plane Crash \| \small Psychological Biases in Individuals
+
+-   Problem space \newline
+
+-   Confirmation bias \newline
+
+-   Functional fixedness
+
+## Plane Crash \| \small Psychological Biases in Groups
+
+-   Groupthink \newline
+
+-   Social loafing \newline
+
+-   Group dominance
+
+## Plane Crash \| \small Foreshadowing A/B Design
+
+Did people in group B perform better *individually* than people in group A?
+
+\centering
+
+\includegraphics[height=1in]{./Images/ab-testing.png}
+
+## Forecasting the Course
+
+-   Forecasting (weeks 1-7) \newline
+
+-   Catch-up/Time for First Project (week 8) \newline
+
+-   Dimension Reduction/Clustering (weeks 9-12) \newline
+
+-   A/B Design (weeks 13-14) \newline
+
+-   Catch-up/Time for Second Project (week 15)
+
+## Software for the Course
+
+\flushleft
+
+\quad \quad \href{https://cran.r-project.org/}{\includegraphics[height=.5in]{./Images/r.jpg}} \quad \quad \quad \quad \quad \quad \href{https://cran.r-project.org/}{\color{blue}Download R}
+
+\vspace{.25in}
+
+\href{https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html}{\includegraphics[height=.75in]{./Images/windows.png}} \quad \quad \href{https://cran.r-project.org/bin/windows/Rtools/rtools42/rtools.html}{\color{blue}Download Rtools} (Windows only)
+
+\vspace{.25in}
+
+\href{https://www.rstudio.com/products/rstudio/download/\#download}{\includegraphics[height=.5in]{./Images/r-studio.png}} \quad \quad \href{https://www.rstudio.com/products/rstudio/download/\#download}{\color{blue}Download RStudio}
+
+## Download R Packages \| \small CRAN
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+install.packages("package_name")
+```
+
+-   Replace `package_name` with the name of the package
+
+-   For example:
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+install.packages("fpp3")
+```
+
+Packages to download
+
+-   Forecasting: {fpp2}, {fable}, {prophet}, {tsibble}, {seasonal}, {forecast}, {tidyquant}
+
+-   Dimension Reduction/Clustering: {psych}, {cluster}, {factoextra}
+
+-   Quasi-experimental Design: {rddtools}, {plm}, {lmtest}
+
+## Download R Packages \| \small GitHub
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+devtools::install_github("user/package_name")
+```
+
+-   Replace `user` with the username of package developer
+
+-   Replace `package_name` with the name of the package
+
+-   For example:
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+devtools::install_github("hfgolino/EGAnet")
+```
+
+```{=tex}
+\begin{center}
+\href{https://github.com/}{\includegraphics[height=1in]{./Images/github.png}}
+\end{center}
+```
+## Load R Packages
+
+-   Load the {fpp3} package
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+library(fpp3)
+```
+
+-   Possible error
+
+`Error in library(fpp3): there is no package called ‘fpp3’`
+
+## Got an Error?
+
+\centering
+
+\includegraphics[width=\textwidth]{"./Images/programming-meme.png"}
+
+```{=tex}
+\begin{multicols}{3}
+\begin{itemize}
+  \item \href{https://www.google.com/search?q=Error+in+library\%28fpp3\%29\%3A+there+is+no+package+called+\%E2\%80\%98fpp3\%E2\%80\%99&sxsrf=ALiCzsaxcvgDgit2qlYDC-8w4xCe-OsBsA\%3A1656013634649&source=hp&ei=QsO0YsL6JK6wkvQPrLeGwAw&iflsig=AJiK0e8AAAAAYrTRUqbzXItgg5eaOR1lCXe-k8i9cSoz&ved=0ahUKEwjCo7zDq8T4AhUumIQIHaybAcgQ4dUDCAg&uact=5&oq=Error+in+library\%28fpp3\%29\%3A+there+is+no+package+called+\%E2\%80\%98fpp3\%E2\%80\%99&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEUABYAGDXBmgAcAB4AIABWogBWpIBATGYAQCgAQKgAQE&sclient=gws-wiz
+}{\color{blue}Google}
+  \item \href{https://stackoverflow.com/questions/tagged/r}{\color{blue}StackOverflow}
+  \item \href{https://stats.stackexchange.com/search?q=\%5Br\%5D+arima}{\color{blue}Cross Validated}
+\end{itemize}
+\end{multicols}
+```
+\textbf{Tip}: copy and paste error output verbatim
+
+## Pick a Stock \| \small First Assigment
+
+\justifying
+
+As a semester long assignment, you will track a stock of your choice. It can be any stock, so be sure to pick one that you're interested in. You cannot choose the same stock as another person -- the stock must be your stock and your stock only.
+
+Halfway through the semester, you will visualize the time series of the data using methods taught over the next several weeks and you'll construct a forecasting model for your stock using the last three years of monthly data. You will turn in this model.
+
+At the end of the semester, we will check in on how the models have done. The goal of this assignment is to use the skills you've accumulated through the forecasting component of this course. Your grade will \textit{not} be affected by how well your model forecasts the stock (stocks are \textbf{hard} to forecast!).
+
+## Pick a Stock \| \small Example: John Deere
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+# Load {tidyquant}
+library(tidyquant)
+
+# Get data
+getSymbols(
+  "DE", # ticker symbol
+  from = "2019-06-15", # start date
+  to = "2022-06-15", # end date
+  auto.assign = TRUE # assign variable 'XOM'
+)
+
+# First six rows of data
+head(DE)
+```
+
+## Stock Example \| \small John Deere Chart
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Load {tidyquant}
+library(tidyquant)
+
+# Get data
+sink <- getSymbols(
+  "DE", # ticker symbol
+  from = "2019-06-15", # start date
+  to = "2022-06-15", # end date
+  auto.assign = TRUE # assign variable 'DE'
+)
+
+# Chart data
+chart_Series(DE)
+```
+
+## Stock Example \| \small John Deere Closing Price
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Convert to data frame
+DE_df <- as.data.frame(
+  DE
+)
+DE_df$Day <- row.names(DE_df)
+
+# Load {tsibble}
+library(tsibble)
+
+# Load custom functions
+source("../../Useful Functions/days_to_months.R")
+
+# Convert days to months
+closing <- days_to_months(
+  DE_df, "Day"
+)
+
+# Load {fpp3}
+library(fpp3)
+
+# Plot
+closing %>%
+  autoplot(DE.Close) +
+  labs(
+    x = "Year",
+    y = "Closing Stock Price (USD)",
+    title = "John Deere Stock Price"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  )
+```
+
+````{=html}
+<!--
+## Stock Example \| \small John Deere Autocorrelation
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# STL decomposition
+closing %>%
+  model(NAIVE(DE.Close)) %>%
+  augment() %>%
+  ACF(.innov) %>%
+  autoplot()
+```
+-->
+````
+
+## Stock Example \| \small John Deere Trend
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# STL decomposition
+closing_dcmp <- closing %>%
+  model(stl = STL(DE.Close ~ trend(window = 12)))
+
+# Plot trend
+components(closing_dcmp) %>%
+  as_tsibble() %>%
+  autoplot(colour="gray") +
+  geom_line(aes(y=trend), colour = "#D55E00") +
+  labs(
+    x = "Year",
+    y = "Closing Stock Price (USD)",
+    title = "John Deere Trend"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  )
+```
+
+## Stock Example \| \small John Deere Decomposition
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Plot decomposition
+components(closing_dcmp) %>%
+  autoplot() +
+  labs(
+    x = "Year",
+    y = "Closing Stock Price (USD)",
+    title = "John Deere Decomposition"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  )
+```
+
+## Stock Example \| \small John Deere Changing Over Time
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Load {EGAnet}
+library(EGAnet)
+
+# STL decomposition
+closing_dcmp <- closing %>%
+  model(stl = STL(DE.Close ~ trend(window = 12)))
+
+# Compute derivatives
+closing_deriv <- glla(
+   closing$DE.Close,
+   n.embed = 3, tau = 1,
+   delta = 1, order = 1
+)
+
+# Add derivatives to closing
+closing$DE.Derivatives <- c(
+  NA, closing_deriv[,2], NA
+)
+
+# Plot trend
+closing %>%
+  autoplot(DE.Derivatives, colour="#D55E00") +
+  # geom_line(aes(y=trend), colour = "#D55E00") +
+  labs(
+    x = "Year",
+    y = "Closing Stock Price (USD)",
+    title = "John Deere Rate of Change"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  ) +
+  geom_hline(yintercept = 0, color = "black", lty = "dashed")
+```
+
+## Stock Example \| \small John Deere Cross-Validation
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Load {knitr}
+library(knitr)
+
+# Cross-validate
+cv <- closing %>%
+  stretch_tsibble(.init = 10) %>%
+  model(
+    SES = ETS(DE.Close ~ error("A") + trend("N") + season("N")),
+    Holt = ETS(DE.Close ~ error("A") + trend("A") + season("N")),
+    Damped = ETS(DE.Close ~ error("A") + trend("Ad") + season("N"))
+  ) %>%
+  forecast(h = 1) %>%
+  accuracy(closing)
+
+cv[,-c(1:2)] <- apply(cv[,-c(1:2)], 2, round, 3)
+
+kable(
+  cv[,c(1,4,5,8:10)], booktabs = TRUE
+)
+```
+
+## Stock Example \| \small John Deere Model Fit
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Fit ETS model
+fit <- closing %>%
+  model(
+    ETS(DE.Close ~ error("A") + trend("Ad") + season("N"))
+  )
+
+# Fit
+report(fit)
+```
+
+## Stock Example \| \small John Deere Prediction
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Fit ETS model
+fit <- closing %>%
+  model(
+    ETS(DE.Close ~ error("A") + trend("Ad") + season("N"))
+  )
+
+# Forecast
+forecasts <- fit %>%
+  forecast(h = 6)
+
+# Plot
+fc_plot <- forecasts %>%
+  autoplot(closing) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  )
+
+fc_plot
+```
+
+## Stock Example \| \small John Deere Accurate?
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Load {tidyquant}
+library(tidyquant)
+
+# Get data
+sink <- getSymbols(
+  "DE", # ticker symbol
+  from = "2019-06-15", # start date
+  to = "2022-07-15", # end date
+  auto.assign = TRUE # assign variable 'DE'
+)
+
+# Convert to data frame
+DE_df <- as.data.frame(
+  DE
+)
+DE_df$Day <- row.names(DE_df)
+
+# Load {tsibble}
+library(tsibble)
+
+# Load custom functions
+source("../../Useful Functions/days_to_months.R")
+
+# Convert days to months
+closing <- days_to_months(
+  DE_df, "Day"
+)
+
+# Add points
+points <- closing[nrow(closing),]
+
+fc_plot +
+  geom_point(
+    data = points,
+    aes(x = Month, y = DE.Close),
+    color = "#D55E00"
+  )
 ```
