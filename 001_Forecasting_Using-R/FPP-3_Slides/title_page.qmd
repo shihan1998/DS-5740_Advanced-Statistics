@@ -1,0 +1,102 @@
+---
+title: "Using R"
+author: "DS-5740 Advanced Statistics"
+format:
+  beamer:
+    theme: "Warsaw"
+    fonttheme: "structurebold"
+    keep-tex: true
+header-includes: |
+  % Title page graphic
+  \titlegraphic{
+    \includegraphics[height=1.5in]{./Images/probabilistic-forecasting-graph.png} \vspace{1in}
+  }
+  
+  % Vanderbilt color scheme
+  \usepackage{xcolor}
+  \definecolor{gold}{RGB}{207,174,112}  % gold
+  \definecolor{black}{RGB}{10,10,10} % black
+  \definecolor{white}{RGB}{255,255,255} % white
+  \setbeamercolor{title}{fg = gold}
+  \setbeamercolor{title}{bg = black}
+  \setbeamercolor{normal text}{fg = black}
+  \setbeamercolor{frametitle}{fg = gold}
+  \setbeamercolor{frametitle}{bg = black}
+  \setbeamercolor{structure}{fg = gold}
+  \setbeamercolor{structure}{bg = black}
+  \setbeamercolor{item}{fg = black}
+  
+  % Other stuff
+  \usepackage{amssymb}
+  \usepackage{ragged2e}
+  \usepackage{multicol}
+  \usepackage{mwe}
+  
+  % Default setup
+  \usepackage[sfdefault]{cabin}
+  \usepackage{hyperref}
+  %\hypersetup{
+  %  colorlinks = true,
+  %  allcolors = blue
+  %}
+  \usepackage{float, placeins}
+  \usepackage{booktabs}
+  
+  % Additional packages
+  \usepackage[edges]{forest}
+  
+  % tikz equation packages
+  \usepackage{tikz}
+  \usetikzlibrary{backgrounds}
+  \usetikzlibrary{tikzmark}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{arrows,shapes,positioning,shadows,trees,mindmap}
+  \usetikzlibrary{arrows.meta}
+  \colorlet{linecol}{black!75}
+  \usepackage{xkcdcolors} % xkcd colors
+
+  % Basic equation packages
+  \usepackage{amsmath}
+  \usepackage{amsthm}
+  \usepackage{amssymb}
+  \usepackage{mathtools}
+  \usepackage{nccmath}
+  \usepackage{wrapfig}
+  \usepackage{comment}
+  \usepackage{blindtext}
+  \usepackage{graphicx}
+  \usepackage{xspace}
+  \usepackage{array}
+  \usepackage{ragged2e}
+  \newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+  \newcolumntype{X}[1]{>{\RaggedRight\hspace*{0pt}}p{#1}}
+  \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+
+  % Color packages
+  \usepackage{xcolor}
+  \usepackage{tcolorbox}
+  \newcommand{\highlight}[2]{\colorbox{#1!30}{$\displaystyle #2$}}
+  \newcommand{\highlightdark}[2]{\colorbox{#1!50}{$\displaystyle #2$}}
+  \renewcommand{\highlight}[2]{\colorbox{#1!30}{#2}}
+  \renewcommand{\highlightdark}[2]{\colorbox{#1!50}{#2}}
+  
+  % Define colors
+  \definecolor{red}{HTML}{F03D2D}
+  \definecolor{skyblue}{HTML}{90DDF0}
+  \definecolor{green}{HTML}{C8D96F}
+  \definecolor{orange}{HTML}{EF8A17}
+  \definecolor{yellow}{HTML}{F5C900}
+  \definecolor{purple}{HTML}{BA42C0}
+  \definecolor{teal}{HTML}{17BEBB}
+  \definecolor{greyblue}{HTML}{9BAFD9}
+  
+editor: source
+output:
+  beamer_presentation:
+    theme: "Warsaw"
+    fonttheme: "structurebold"
+---
+
+## Exploring Time Series
+              ## Exploring Time Series

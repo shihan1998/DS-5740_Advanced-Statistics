@@ -99,12 +99,42 @@ output:
     fonttheme: "structurebold"
 ---
 
+## Some Introductions
+
+\centering
+
+Alexander Christensen
+
+Quantitative Methods
+
+Psychology and Human Development
+
+Peabody College
+
+## Some Introductions
+
+\centering
+
+1. Name that you'd like me and other people to use \newline
+
+2. Area of study \newline
+
+3. Topics you're interested in (e.g., finance, psychology, social media, sports) \newline
+
+4. What you'd like to get out of this course \newline
+
+5. Career goals (what would you like to do?)
+
+
 ## Plane Crash \| \small Intro
 
 ```{=tex}
 \centering
 \includegraphics[height=2.5in]{./Images/dubois-plane-crash.jpg}
 ```
+
+\pause
+
 You and your group have just survived the crash of a small plane...
 
 ## Plane Crash \| \small Story
@@ -254,9 +284,15 @@ Who did better: you or the group?
 
 Did people in group B perform better *individually* than people in group A?
 
+\textit{You'll answer this question as an assignment later in the course}
+
 \centering
 
 \includegraphics[height=1in]{./Images/ab-testing.png}
+
+## Preparing for the Course
+
+\center Preparing for the Course
 
 ## Forecasting the Course
 
@@ -304,7 +340,7 @@ Packages to download
 
 -   Dimension Reduction/Clustering: {psych}, {cluster}, {factoextra}
 
--   Quasi-experimental Design: {rddtools}, {plm}, {lmtest}
+-   Quasi-experimental Design: {scidesignR}
 
 ## Download R Packages \| \small GitHub
 
@@ -357,7 +393,11 @@ library(fpp3)
 ```
 \textbf{Tip}: copy and paste error output verbatim
 
-## Pick a Stock \| \small First Assigment
+## Pick a Stock
+
+\center Pick a Stock
+
+## Pick a Stock \| \small First Assignment
 
 \justifying
 
@@ -624,7 +664,7 @@ library(tidyquant)
 sink <- getSymbols(
   "DE", # ticker symbol
   from = "2019-06-15", # start date
-  to = "2022-07-15", # end date
+  to = "2022-08-15", # end date
   auto.assign = TRUE # assign variable 'DE'
 )
 
@@ -646,12 +686,29 @@ closing <- days_to_months(
 )
 
 # Add points
-points <- closing[nrow(closing),]
+points <- closing[
+  which(closing$Month == yearmonth("2022 Jul")):nrow(closing),
+]
 
 fc_plot +
   geom_point(
     data = points,
     aes(x = Month, y = DE.Close),
-    color = "#D55E00"
+    color = "#D55E00", size = 3
   )
 ```
+
+## Stock \| \small Your Turn
+
+\center \textbf{For next week}
+
++ Pick any stock you're interested in (except for Google)
+
++ Email me your stock name and ticker (e.g., John Deere; DE): \href{mailto:alexander.christensen@vanderbilt.edu}{\color{blue}alexander.christensen@vanderbilt.edu}
+
++ Due next Monday (08.29.2022)
+
+
+
+
+
