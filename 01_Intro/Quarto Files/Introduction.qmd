@@ -101,15 +101,28 @@ output:
 
 ## Some Introductions
 
-\centering
+\flushleft
+
+\textbf{Instructor}
 
 Alexander Christensen
-
-Quantitative Methods
 
 Psychology and Human Development
 
 Peabody College
+
+\vspace{1cm}
+
+\flushright
+
+\textbf{Teaching Assistant}
+
+Marisa Blackman
+
+Department of Biostatistics
+
+Vanderbilt School of Medicine
+
 
 ## Some Introductions
 
@@ -302,7 +315,7 @@ Did people in group B perform better *individually* than people in group A?
 
 -   Dimension Reduction/Clustering (weeks 9-12) \newline
 
--   A/B Design (weeks 13-14) \newline
+-   A/B Design or Introduction to Bayesian Statistics (weeks 13-14) \newline
 
 -   Catch-up/Time for Second Project (week 15)
 
