@@ -17,7 +17,7 @@ Office Hour: Thursdays, 2-3pm (Hobbs Building, Room 221)
 [Marisa H. Blackman](https://www.vanderbilt.edu/biostatistics-graduate/cpt/people/marisa-blackman/) <br>
 PhD Biostatistics Candidate <br>
 [marisa.h.blackman@vanderbilt.edu](mailto:marisa.h.blackman@vanderbilt.edu) <br>
-Office Hour: Thursdays, 1-2pm (TBD)
+Office Hour: Thursdays, 1-2pm (Sony Building, Room 2062)
 
 ## Textbooks
 ### Forecasting
