@@ -11,7 +11,7 @@ The majority of the course covers time series forecasting to use past performanc
 Assistant Professor <br>
 1210 21st Ave S, Room 221 <br>
 [alexander.christensen@vanderbilt.edu](mailto:alexander.christensen@vanderbilt.edu) <br>
-Office Hour: Thursdays, 2-3pm (Hobbs Building, Room 221)
+Office Hour: Tuesdays, 2-3pm (Hobbs Building, Room 221)
 
 ## Teaching Assistant
 [Marisa H. Blackman](https://www.vanderbilt.edu/biostatistics-graduate/cpt/people/marisa-blackman/) <br>
