@@ -96,7 +96,14 @@ output:
   beamer_presentation:
     theme: "Warsaw"
     fonttheme: "structurebold"
+execute:
+  cache: true
 ---
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+# Ensure load {fpp3}
+library(fpp3)
+```
 
 ## Overview
 
@@ -827,7 +834,7 @@ us_change %>%
 ```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
 knitr::knit_hooks$set(chunk = function(x, options) {
   x <- def.chunk.hook(x, options)
-  paste0("\n \\", "small","\n\n", x, "\n\n \\normalfont")
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
 })
 ```
 
@@ -843,6 +850,9 @@ sqrt(mean((fc$.mean - us_actual$Consumption)^2))
 
 # MBE
 mean(fc$.mean - us_actual$Consumption)
+
+# General function for many measures
+accuracy(fc, us_change)
 ```
 
 ## Forecasting \| \small Regression Residuals
@@ -967,6 +977,21 @@ fc_us <- fit_us_lm %>% forecast(new_data = future_scenarios)
 autoplot(us_prediction, Consumption) +
   autolayer(fc_us)
 
+```
+
+## Forecasting \| \small Regression Components
+
+Prediction Intervals (Confidence Bands/Intervals)
+
+```{=tex}
+\begin{figure}
+\begin{equation*}
+\highlight{red}{$\hat{y}$} \pm
+1.96\highlight{skyblue}{$\hat{\sigma_e}$}
+\sqrt{1 + \frac{1}{\highlight{green}{$T$}} + \frac{(x - \bar{x})^2}{(\highlight{green}{$T$} - 1)s^2_x}}
+\end{equation*}
+\label{fig:fig5}
+\end{figure}
 ```
 
 ## Forecasting \| \small Regression Components
@@ -1335,9 +1360,6 @@ glance(fit_beer) %>%
 
 Dummy Variables
 
-```{=tex}
-\begin{small}
-
 + Interventions (one time): An effect that lasts only one period. Add a dummy variable with 1 at time point ($t$)
 
 + Interventions (permanent): An effect that continues. Add a dummy variable with 1 at time point ($t$) and each time point there after ($t, t_{+1}, ..., t_n$)
@@ -1349,9 +1371,6 @@ Dummy Variables
 + Holidays: Adjust placement of 1 with each year
 
 + Fourier series (alternative to season): sine and cosine based on $m$ periods (e.g., $m = 52$ for weeks in a year)
-
-\end{small}
-```
 
 ## Forecasting \| \small Fourier Series
 
@@ -1439,7 +1458,7 @@ augment(fourier_beer) %>%
 
 ## Residuals \| \small Computing
 
-```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4}
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
 # Plot fitted model
 fourier_beer %>%
   gg_tsresiduals()
