@@ -1,0 +1,1475 @@
+---
+title: "Time Series Regression Models"
+author: "DS-5740 Advanced Statistics"
+format:
+  beamer:
+    theme: "Warsaw"
+    fonttheme: "structurebold"
+    keep-tex: true
+header-includes: |
+  % Title page graphic
+  \titlegraphic{
+    \includegraphics[height=1.5in]{./Images/probabilistic-forecasting-graph.png} \vspace{1in}
+  }
+  
+  % Vanderbilt color scheme
+  \usepackage{xcolor}
+  \definecolor{gold}{RGB}{207,174,112}  % gold
+  \definecolor{black}{RGB}{10,10,10} % black
+  \definecolor{white}{RGB}{255,255,255} % white
+  \setbeamercolor{title}{fg = gold}
+  \setbeamercolor{title}{bg = black}
+  \setbeamercolor{normal text}{fg = black}
+  \setbeamercolor{frametitle}{fg = gold}
+  \setbeamercolor{frametitle}{bg = black}
+  \setbeamercolor{structure}{fg = gold}
+  \setbeamercolor{structure}{bg = black}
+  \setbeamercolor{item}{fg = black}
+  
+  % Other stuff
+  \usepackage{amssymb}
+  \usepackage{ragged2e}
+  \usepackage{multicol}
+  \usepackage{mwe}
+  
+  % Default setup
+  \usepackage[sfdefault]{cabin}
+  \usepackage{hyperref}
+  %\hypersetup{
+  %  colorlinks = true,
+  %  allcolors = blue
+  %}
+  \usepackage{float, placeins}
+  \usepackage{booktabs}
+  
+  % Additional packages
+  \usepackage[edges]{forest}
+  
+  % tikz equation packages
+  \usepackage{tikz}
+  \usetikzlibrary{backgrounds}
+  \usetikzlibrary{tikzmark}
+  \usetikzlibrary{calc}
+  \usetikzlibrary{arrows,shapes,positioning,shadows,trees,mindmap}
+  \usetikzlibrary{arrows.meta}
+  \colorlet{linecol}{black!75}
+  \usepackage{xkcdcolors} % xkcd colors
+
+  % Basic equation packages
+  \usepackage{amsmath}
+  \usepackage{amsthm}
+  \usepackage{amssymb}
+  \usepackage{mathtools}
+  \usepackage{nccmath}
+  \usepackage{wrapfig}
+  \usepackage{comment}
+  \usepackage{blindtext}
+  \usepackage{graphicx}
+  \usepackage{xspace}
+  \usepackage{array}
+  \usepackage{ragged2e}
+  \newcolumntype{P}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+  \newcolumntype{X}[1]{>{\RaggedRight\hspace*{0pt}}p{#1}}
+  \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+
+  % Color packages
+  \usepackage{xcolor}
+  \usepackage{tcolorbox}
+  \newcommand{\highlight}[2]{\colorbox{#1!30}{$\displaystyle #2$}}
+  \newcommand{\highlightdark}[2]{\colorbox{#1!50}{$\displaystyle #2$}}
+  \renewcommand{\highlight}[2]{\colorbox{#1!30}{#2}}
+  \renewcommand{\highlightdark}[2]{\colorbox{#1!50}{#2}}
+  
+  % Define colors
+  \definecolor{red}{HTML}{F03D2D}
+  \definecolor{skyblue}{HTML}{90DDF0}
+  \definecolor{green}{HTML}{C8D96F}
+  \definecolor{orange}{HTML}{EF8A17}
+  \definecolor{yellow}{HTML}{F5C900}
+  \definecolor{purple}{HTML}{BA42C0}
+  \definecolor{teal}{HTML}{17BEBB}
+  \definecolor{greyblue}{HTML}{9BAFD9}
+  
+editor: source
+output:
+  beamer_presentation:
+    theme: "Warsaw"
+    fonttheme: "structurebold"
+---
+
+## Overview
+
+\center Overview: Week 2
+
+## Overview \| \small Week 2
+
+\textbf{Preliminaries}
+
++   Quick coverage of important syllabus details \newline
+
++   Project 1 rubric \newline
+
+\textbf{Goals for the Week}
+
++   Consider factors involved in forecasting \newline
+
++   Make your first forecast and see forecasts \newline
+
++   Cover linear regression models with time series \newline
+
++   Make forecasts and check their accuracy
+
+## Overview \| \small Week 2
+
+\textbf{Syllabus}
+
++   Office Hours:
+
+    +   Alex: Tuesdays 2-3pm (Hobbs Building, Room 221); by appointment \newline
+    +   Marisa: Thursdays 1-2pm (Sony Building, Room 2062) \newline
+
++   Assignments:
+
+    +   Due on Sundays at midnight (.Rmd or .html over Brightspace) \newline
+    +   Late work policy: can be turned in any time there after for 80% of grade (until 11.20.2022) \newline
+    +   12 assignments but only your \textit{10} highest grades count
+    
+\textbf{Project 1 Rubric}
+
+
+## Forecasting \| \small The Basics
+
+````{=html}
+<!-- Templates
+
+# R
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = FALSE}
+```
+
+# R plot
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = FALSE}
+df %>%
+  autoplot(variable) +
+  labs(
+    x = "x-label",
+    y = "y-label Stock Price (USD)",
+    title = "title"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  )
+```
+
+# LaTeX
+```{=tex}
+```
+
+# tikz equation
+```{=tex}
+\begin{figure}
+\begin{equation*}
+\tikzmarknode{y}{\highlight{red}{$y_t$}} =
+\tikzmarknode{intercept}{\highlight{skyblue}{$\beta_0$}} +
+\tikzmarknode{trend}{\highlight{green}{$\beta_1 t$}} +
+\tikzmarknode{season}{\highlight{purple}{$\beta_2 d_{2,t} + \beta_3 d_{3,t} + \beta_4 d_{4,t}$}} +
+\tikzmarknode{error}{\highlight{orange}{$\epsilon_t$}}
+\end{equation*}
+
+\begin{tikzpicture}[overlay,remember picture,>=stealth,nodes={align=center,inner ysep=1pt},<-]
+    
+    % y
+    \path (y.north) ++ (0,1em) node[anchor=south west,color=red] (scalep){\textbf{outcome (at time \textit{t})}};
+    \draw [color=red](y.north) |- ([xshift=-0.3ex,color=red]scalep.south east);
+    
+    % intercept
+    \path (intercept.south) ++ (0,-1em) node[anchor=north east,color=skyblue] (scalep){\textbf{intercept}};
+    \draw [color=skyblue](intercept.south) |- ([xshift=-0.3ex,color=skyblue]scalep.north west);
+    
+    % trend
+    \path (trend.south) ++ (0,-1em) node[anchor=north west,color=green] (scalep){\textbf{trend}};
+    \draw [color=green](trend.south) |- ([xshift=-0.3ex,color=green]scalep.north east);
+    
+    % season
+    \path (season.south) ++ (0,-1em) node[anchor=north west,color=purple] (scalep){\textbf{season}};
+    \draw [color=purple](season.south) |- ([xshift=-0.3ex,color=purple]scalep.north east);
+    
+    % error
+    \path (error.south) ++ (0,-1em) node[anchor=north west,color=orange] (scalep){\textbf{error (at time \textit{t})}};
+    \draw [color=orange](error.south) |- ([xshift=-0.3ex,color=orange]scalep.north east);
+    
+\end{tikzpicture}
+\vspace{-1.1cm}
+\label{fig:fig4}
+\end{figure}
+```
+
+-->
+````
+
+\centering
+
+What can we forecast?
+
+## Difficulty of Forecasts
+
+-   daily electricity demand in three days \newline
+-   time of sunrise this day next year \newline
+-   Google stock price in 6 months (USD) \newline
+-   maximum temperature tomorrow \newline
+-   next week's gas prices (USD)
+
+## Difficulty of Forecasts
+
+1.  time of sunrise this day next year \newline
+2.  maximum temperature tomorrow \newline
+3.  daily electricity demand in three days \newline
+4.  next week's gas prices (USD) \newline
+5.  Google stock price in 6 months (USD)
+
+## Factors Affecting Difficulty
+
+1.  knowledge of variables involved \newline
+2.  how much data are available \newline
+3.  similarity of future to past \newline
+4.  whether forecasts are useful
+
+## Consideration of Factors
+1.  time of sunrise this day next year \newline
+\pause
+2.  maximum temperature tomorrow \newline
+\pause
+3.  daily electricity demand in three days \newline
+\pause
+4.  next week's gas prices (USD) \newline
+\pause
+5.  Google stock price in 6 months (USD)
+
+## Make a Forecast
+
+\center Your Chance to Forecast
+
+## Make a Forecast \| \small Plot Time Series
+
+\textbf{forecast}: an estimate of the probabilities of possible futures
+
+\vspace{2cm}
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE, fig.height = 4}
+# Load {fpp3}
+library(fpp3)
+
+# Load Australian beer production
+data("aus_production")
+
+# Remove last available five years
+ts_length <- nrow(aus_production)
+aus_prediction <- aus_production[
+  -c((ts_length - 19):ts_length),
+]
+aus_actual <- aus_production[
+  c((ts_length - 19):ts_length),
+]
+
+# Plot
+aus_prediction %>%
+  autoplot(Beer) +
+  labs(
+    x = "Year (Quarters)",
+    y = "Beer Volume",
+    title = "Austrailian Beer Production"
+  ) +
+  scale_x_yearquarter(
+    date_breaks = "5 years"
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  )
+```
+
+## Make a Forecast \| \small Basics
+
+1.  Problem definition \newline
+2.  Gathering information \newline
+3.  Preliminary (exploratory) analysis \newline
+4.  Choosing and fitting models \newline
+5.  Using and evaluating a forecasting model
+
+## Make a Forecast \| \small Class Forecast
+
+\textbf{forecast}: an estimate of the probabilities of possible futures
+
+\vspace{2cm}
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Fit ETS model
+fit <- aus_prediction %>%
+  model(ETS(Beer))
+
+# Forecast
+fc <- forecast(fit, h = 20) %>%
+  mutate(Quarter = yearquarter(Quarter))
+
+# Simulate 10 future paths
+set.seed(1956)
+sim <- fit %>%
+  generate(h = 20, times = 10) %>%
+  mutate(
+    replicate = factor(.rep, levels = 1:10, labels = paste("Future", 1:10)),
+    .rep = as.numeric(.rep)
+  ) %>%
+  as_tibble() %>%
+  mutate(Quarter = yearquarter(Quarter))
+
+# Colors for future predictions
+cols <- scale_colour_manual(
+  values = c("#D55E00", "#0072B2", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#F0E442", sample(rainbow(10))),
+  breaks = paste("Future", 1:10),
+  name = " "
+)
+
+# One future
+p1 <- aus_prediction %>%
+  filter(Quarter >= yearquarter("1994 Q1")) %>%
+  ggplot(aes(x = Quarter, y = Beer)) +
+  geom_line() +
+  labs(
+    x = "Year (Quarters)",
+    y = "Beer Volume",
+    title = "Austrailian Beer Production"
+  ) +
+  scale_x_yearquarter(
+    date_breaks = "5 years"
+    ,
+    limits = c(
+      as.Date(NA),
+      as.Date(max(sim$Quarter))
+    )
+  ) +
+  theme(
+    panel.background = element_blank(),
+    axis.line = element_line(color = "black", size = 1),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 16, hjust = 0.5)
+  ) +
+  ylim(
+    min(aus_prediction$Beer, sim$.sim, na.rm = TRUE),
+    max(aus_prediction$Beer, sim$.sim, na.rm = TRUE)
+  )
+
+p1
+```
+
+## Make a Forecast \| \small One Random Future
+
+\textbf{forecast}: an estimate of the probabilities of possible futures
+
+\vspace{2cm}
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, fig.height = 4, cache = TRUE}
+# One future
+p2 <- p1 + cols +
+  geom_line(aes(y = .sim, group = replicate, color = replicate), data = sim %>% filter(.rep <= 1))
+
+p2
+```
+
+## Make a Forecast \| \small Ten Random Futures
+
+\textbf{forecast}: an estimate of the probabilities of possible futures
+
+\vspace{2cm}
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Ten futures
+pall <- p1 + cols +
+  geom_line(aes(y = .sim, group = replicate, color = replicate), data = sim)
+
+pall
+```
+
+## Make a Forecast \| \small Actual Forecast
+
+\textbf{forecast}: an estimate of the probabilities of possible futures
+
+\vspace{2cm}
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Confidence width
+pact <- p1 +
+  geom_line(aes(y = .sim, group = replicate, color = replicate), alpha = 0.5, col = "gray", data = sim) +
+  guides(color = "none")  +
+  autolayer(fc, level = c(50, 90))
+
+pact
+```
+
+## Make a Forecast \| \small Ground Truth
+
+\textbf{forecast}: an estimate of the probabilities of possible futures
+
+\vspace{2cm}
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Actual future
+actual <- pact +
+  geom_line(aes(y = Beer), col = "#FF5733", alpha = 1, data = aus_actual, size = 1.1)
+
+actual
+```
+
+## Forecasting \| \small Regression
+
+\center Times Series Linear Model (TSLM)
+
+```{=html}
+<!--
+
+## Forecasting \| \small Adjustments and Transformations
+
+### Adjustments
+
++ Calendar: seconds, minutes, hours, days, weeks, months, years? \newline
+
++ Population: per person, per thousand, per million \newline
+
++ Inflation: $\frac{y_t}{z_t \times z_{year}}$, where $y_t$ is original value in $year$, $z_t$ is current value, and $z_{year}$ is the adjusted value
+
+### Transformations
+
++ Power: $w_t = y_t^p$ \newline
+
++ Box-Cox: $w_t = \bigg\{ \genfrac{}{}{0pt}{}{\log{y_t}}{(\text{sign}(y_t)|y_t|^\lambda - 1 / \lambda)} \genfrac{}{}{0pt}{}{\text{if} \ \lambda = 0;}{\text{otherwise.}}$
+
+-->
+```
+## Forecasting \| \small Regression
+
+$$
+y = \beta_0 + \sum_k^n \beta_k x_k + \epsilon
+$$
+
+## Forecasting \| \small Regression
+
+```{=tex}
+\begin{figure}
+\begin{equation*}
+\tikzmarknode{y}{\highlight{red}{$y$}} =
+\tikzmarknode{intercept}{\highlight{skyblue}{$\beta_0$}} +
+\tikzmarknode{betas}{\highlight{green}{$\sum_k^n \beta_k x_k$}} +
+\tikzmarknode{error}{\highlight{orange}{$\epsilon$}}
+\end{equation*}
+
+\begin{tikzpicture}[overlay,remember picture,>=stealth,nodes={align=center,inner ysep=1pt},<-]
+    
+    % y
+    \path (y.north) ++ (0,1em) node[anchor=south east,color=red] (scalep){\textbf{outcome}};
+    \draw [color=red](y.north) |- ([xshift=-0.3ex,color=red]scalep.south west);
+    
+    % intercept
+    \path (intercept.south) ++ (0,-1em) node[anchor=north east,color=skyblue] (scalep){\textbf{intercept}};
+    \draw [color=skyblue](intercept.south) |- ([xshift=-0.3ex,color=skyblue]scalep.north west);
+    
+    % betas
+    \path (betas.north) ++ (0,1em) node[anchor=south west,color=green] (scalep){\textbf{sum of weights by predictor}};
+    \draw [color=green](betas.north) |- ([xshift=-0.3ex,color=green]scalep.south east);
+    
+    % error
+    \path (error.south) ++ (0,-1em) node[anchor=north west,color=orange] (scalep){\textbf{error}};
+    \draw [color=orange](error.south) |- ([xshift=-0.3ex,color=orange]scalep.north east);
+    
+\end{tikzpicture}
+\vspace{-1.1cm}
+\label{fig:fig1}
+\end{figure}
+```
+## Forecasting \| \small Regression
+
+```{=tex}
+\centering
+\includegraphics[height=2.5in]{./Images/linear-regression.png}
+```
+
+## Forecasting \| \small Regression with Time
+
+$$
+y_t = \beta_0 + \sum_k^n \beta_k x_{k, t} + \epsilon_t
+$$
+
+## Forecasting \| \small Regression with Time
+
+```{=tex}
+\begin{figure}
+\begin{equation*}
+\tikzmarknode{y}{\highlight{red}{$y_t$}} =
+\tikzmarknode{intercept}{\highlight{skyblue}{$\beta_0$}} +
+\tikzmarknode{betas}{\highlight{green}{$\sum_k^n \beta_k x_{k, t}$}} +
+\tikzmarknode{error}{\highlight{orange}{$\epsilon_t$}}
+\end{equation*}
+
+\begin{tikzpicture}[overlay,remember picture,>=stealth,nodes={align=center,inner ysep=1pt},<-]
+    
+    % y
+    \path (y.north) ++ (0,1em) node[anchor=south east,color=red] (scalep){\textbf{outcome (at time \textit{t})}};
+    \draw [color=red](y.north) |- ([xshift=-0.3ex,color=red]scalep.south west);
+    
+    % intercept
+    \path (intercept.south) ++ (0,-1em) node[anchor=north east,color=skyblue] (scalep){\textbf{intercept}};
+    \draw [color=skyblue](intercept.south) |- ([xshift=-0.3ex,color=skyblue]scalep.north west);
+    
+    % betas
+    \path (betas.north) ++ (0,1em) node[anchor=south west,color=green] (scalep){\textbf{sum of weights by predictor} \\ \textbf{(at time \textit{t})}};
+    \draw [color=green](betas.north) |- ([xshift=-0.3ex,color=green]scalep.south east);
+    
+    % error
+    \path (error.south) ++ (0,-1em) node[anchor=north west,color=orange] (scalep){\textbf{error (at time \textit{t})}};
+    \draw [color=orange](error.south) |- ([xshift=-0.3ex,color=orange]scalep.north east);
+    
+\end{tikzpicture}
+\vspace{-1.1cm}
+\label{fig:fig2}
+\end{figure}
+```
+
+\vspace{1cm}
+
+\pause
+
++   $y_t$ = \textbf{outcome} or variable we want to predict
+
+\pause
+
++   $x_k,t$ = \textbf{predictor} or variable used to predict the outcome
+
+    +   Usually assumed to be known for all \textit{past} and \textit{future}
+
+\pause 
+
++   $\beta_k$ = \textbf{coefficients} that measure the effect of each predictor (after taking into account all other predictors)
+
+\pause
+
++   $\epsilon_t$ = white noise error term (we'll talk more on this later)
+
+## Forecasting \| \small Regression Example
+
+\center Regression Example
+
+## Forecasting \| \small US Consumption Expediture
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+us_change %>%
+  gather("Measure", "Change", Consumption, Income, Production, Savings, Unemployment) %>%
+  ggplot(aes(x = Quarter, y = Change, colour = Measure)) +
+  geom_line() +
+  facet_grid(vars(Measure), scales = "free_y") +
+  labs(y="") +
+  guides(colour="none")
+```
+
+## Forecasting \| \small US Consumption Expediture
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+us_change %>%
+  as_tibble() %>%
+  select(-Quarter) %>%
+  GGally::ggpairs()
+```
+
+## Forecasting \| \small US Consumption Expediture
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "footnotesize","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+fit <- us_change %>%
+  model(lm = TSLM(
+    Consumption ~ Income + Production + Unemployment + Savings
+  ))
+
+report(fit)
+```
+
+## Forecasting \| \small Regression Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "footnotesize","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Load {fpp3}
+library(fpp3)
+
+# Load US Consumption data
+data("us_change")
+
+# Length of time series
+ts_length <- nrow(us_change)
+
+# Remove last five years (we'll make a prediction later) 
+us_prediction <- us_change[
+  -c((ts_length - 19):ts_length), # remove last 5 years
+]
+
+# Save last five years (we'll compare with prediction)
+us_actual <- us_change[
+  c((ts_length - 19):ts_length), # keeps last 5 years
+]
+```
+
+## Forecasting \| \small Regression Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Fit linear model
+fit_us_lm <- us_prediction %>% # our data
+  model( # model for time series
+    tslm = TSLM( # time series linear model
+      Consumption ~ Income + Production + Savings + Unemployment
+    )
+  )
+```
+
+## Forecasting \| \small Regression Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Report fit
+report(fit_us_lm)
+```
+
+## Forecasting \| \small Regression Example
+
+\center Forecasting with Regression
+
+## Forecasting \| \small Regression Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+# Plot model
+augment(fit_us_lm) %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption, colour = "Data")) +
+  # Plot fit values
+  geom_line(aes(y = .fitted, colour = "Fitted")) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # Change colors
+  scale_colour_manual(
+    values = c(
+      Data = "black", # Make data line black
+      Fitted = "orange" # Make fitted line orange
+    )
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+```
+
+## Forecasting \| \small Regression Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+# Plot model
+augment(fit_us_lm) %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption, colour = "Data")) +
+  # Plot fit values
+  geom_line(aes(y = .fitted, colour = "Fitted")) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # Change colors
+  scale_colour_manual(
+    values = c(
+      Data = "black", # Make data line black
+      Fitted = "orange" # Make fitted line orange
+    )
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+```
+
+## Forecasting \| \small Regression Forecast
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+# Forecast
+fc <- forecast(fit_us_lm, new_data = us_actual)
+
+# Plot forecast
+us_change %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption, colour = "Data")) +
+  # Plot predicted values
+  geom_line(
+    data = fc,
+    aes(y = .mean, colour = "Fitted"),
+    size = 1
+  ) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # Change colors
+  scale_colour_manual(
+    values = c(
+      Data = "black", # Make data line black
+      Fitted = "orange" # Make fitted line orange
+    )
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+
+```
+
+## Forecasting \| \small Regression Forecast
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+# Forecast
+fc <- forecast(fit_us_lm, new_data = us_actual)
+
+# Plot forecast
+us_change %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption, colour = "Data")) +
+  # Plot predicted values
+  geom_line(
+    data = fc,
+    aes(y = .mean, colour = "Fitted"),
+    size = 1
+  ) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # Change colors
+  scale_colour_manual(
+    values = c(
+      Data = "black", # Make data line black
+      Fitted = "orange" # Make fitted line orange
+    )
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+
+```
+
+## Forecasting \| \small Regression Forecast Accuracy
+
+### Measures of Accuracy
+
+-   R-squared: proportion of variance explained \newline
+
+\center $R^2 = \frac{\sum(\hat{y_t} - \bar{y})^2}{\sum(y_t - \bar{y})^2}$ \newline
+
+-   Mean absolute error: average error \newline
+
+\center $MAE = \frac{\sum |\hat{y_t} - y_t|}{T}$ \newline
+
+-   Root mean square error: standard deviation of error \newline
+
+\center $RMSE = \sqrt{\frac{\sum (\hat{y_t} - y_t)^2}{T}}$ \newline
+
+-   Mean bias error: tendency to over- (+) or underestimate (-) \newline
+
+\center $MBE = \frac{\sum \hat{y_t} - y_t}{T}$
+
+## Forecasting \| \small Regression Forecast Accuracy
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "small","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# R-squared
+cor(fc$.mean, us_actual$Consumption)^2
+
+# MAE
+mean(abs(fc$.mean - us_actual$Consumption))
+
+# RMSE
+sqrt(mean((fc$.mean - us_actual$Consumption)^2))
+
+# MBE
+mean(fc$.mean - us_actual$Consumption)
+```
+
+## Forecasting \| \small Regression Residuals
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "footnotesize","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Check residuals
+gg_tsresiduals(fit_us_lm)
+```
+
+
+## Forecasting \| \small Regression Forecast (no actual data)
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+# Future scenarios
+future_scenarios <- scenarios( # Create future scenarios
+  increase_income = new_data( # Create new data
+    us_prediction,  # Original data
+    nrow(us_actual) # Number of new data
+  ) %>%
+    mutate(
+      Income = mean(us_prediction$Income) + # Add to mean Income
+        seq(0, 1, length = nrow(us_actual)), # Increase from 0 to 1
+      # with a length equal to the number of actual data
+      Production = mean(us_prediction$Production) + 
+        rep(0, nrow(us_actual)), # No increase/decrease
+      # Repeat 0 with a length equal to the number of actual data
+      Savings = mean(us_prediction$Savings) + 
+        rep(0, nrow(us_actual)),
+      Unemployment = mean(us_prediction$Unemployment) +
+        rep(0, nrow(us_actual))
+    ),
+  decrease_income = new_data(
+    us_prediction, nrow(us_actual)
+  ) %>%
+    mutate(
+      Income = mean(us_prediction$Income) + 
+        seq(0, -1, length = nrow(us_actual)),
+      Production = mean(us_prediction$Production) + 
+        rep(0, nrow(us_actual)),
+      Savings = mean(us_prediction$Savings) + 
+        rep(0, nrow(us_actual)),
+      Unemployment = mean(us_prediction$Unemployment) +
+        rep(0, nrow(us_actual))
+    )
+)
+```
+
+## Forecasting \| \small Regression Forecast (no actual data)
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "normalfont","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+# Forecast
+fc_us <- fit_us_lm %>% 
+  forecast(new_data = future_scenarios)
+
+# Plot
+autoplot(us_prediction, Consumption) +
+  autolayer(fc_us)
+
+```
+
+## Forecasting \| \small Regression Forecast (no actual data)
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+# Future scenarios
+future_scenarios <- scenarios( # Create future scenarios
+  increase_income = new_data( # Create new data
+    us_prediction,  # Original data
+    nrow(us_actual) # Number of new data
+  ) %>%
+    mutate(
+      Income = mean(us_prediction$Income) + # Add to mean Income
+        seq(0, 1, length = nrow(us_actual)), # Increase from 0 to 1
+      # with a length equal to the number of actual data
+      Production = mean(us_prediction$Production) + 
+        rep(0, nrow(us_actual)), # No increase/decrease
+      # Repeat 0 with a length equal to the number of actual data
+      Savings = mean(us_prediction$Savings) + 
+        rep(0, nrow(us_actual)),
+      Unemployment = mean(us_prediction$Unemployment) +
+        rep(0, nrow(us_actual))
+    ),
+  decrease_income = new_data(
+    us_prediction, nrow(us_actual)
+  ) %>%
+    mutate(
+      Income = mean(us_prediction$Income) + 
+        seq(0, -1, length = nrow(us_actual)),
+      Production = mean(us_prediction$Production) + 
+        rep(0, nrow(us_actual)),
+      Savings = mean(us_prediction$Savings) + 
+        rep(0, nrow(us_actual)),
+      Unemployment = mean(us_prediction$Unemployment) +
+        rep(0, nrow(us_actual))
+    )
+)
+
+# Forecast
+fc_us <- fit_us_lm %>% forecast(new_data = future_scenarios)
+
+# Plot
+autoplot(us_prediction, Consumption) +
+  autolayer(fc_us)
+
+```
+
+## Forecasting \| \small Regression Components
+
+\center Regression with Trend and Seasonal Components
+
+## Forecasting \| \small Regression Components
+
+```{=tex}
+\begin{figure}
+\begin{equation*}
+\tikzmarknode{y}{\highlight{red}{$y_t$}} =
+\tikzmarknode{intercept}{\highlight{skyblue}{$\beta_0$}} +
+\tikzmarknode{trend}{\highlight{green}{$\beta_1 t$}} +
+\tikzmarknode{error}{\highlight{orange}{$\epsilon_t$}}
+\end{equation*}
+
+\begin{tikzpicture}[overlay,remember picture,>=stealth,nodes={align=center,inner ysep=1pt},<-]
+    
+    % y
+    \path (y.north) ++ (0,1em) node[anchor=south east,color=red] (scalep){\textbf{outcome (at time \textit{t})}};
+    \draw [color=red](y.north) |- ([xshift=-0.3ex,color=red]scalep.south west);
+    
+    % intercept
+    \path (intercept.south) ++ (0,-1em) node[anchor=north east,color=skyblue] (scalep){\textbf{intercept}};
+    \draw [color=skyblue](intercept.south) |- ([xshift=-0.3ex,color=skyblue]scalep.north west);
+    
+    % trend
+    \path (trend.north) ++ (0,1em) node[anchor=south west,color=green] (scalep){\textbf{trend}};
+    \draw [color=green](trend.north) |- ([xshift=-0.3ex,color=green]scalep.south east);
+    
+    % error
+    \path (error.south) ++ (0,-1em) node[anchor=north west,color=orange] (scalep){\textbf{error (at time \textit{t})}};
+    \draw [color=orange](error.south) |- ([xshift=-0.3ex,color=orange]scalep.north east);
+    
+\end{tikzpicture}
+\vspace{-1.1cm}
+\label{fig:fig3}
+\end{figure}
+```
+## Forecasting \| \small Regression Trend Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Fit linear model with trend
+  fit_us_trend <- us_prediction %>%
+  model( # model for time series
+    tslm = TSLM( # time series linear model
+      Consumption ~ trend() # trend component
+    )
+  )
+```
+
+## Forecasting \| \small Regression Trend Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "footnotesize","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Report fit
+report(fit_us_trend)
+```
+
+## Forecasting \| \small Regression Trend Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+# Plot model
+augment(fit_us_trend) %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption)) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+```
+
+## Forecasting \| \small Regression Trend Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+# Plot model
+augment(fit_us_trend) %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption, colour = "Data")) +
+  # Plot fit values
+  geom_line(aes(y = .fitted, colour = "Fitted")) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # Change colors
+  scale_colour_manual(
+    values = c(
+      Data = "black", # Make data line black
+      Fitted = "orange" # Make fitted line orange
+    )
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+```
+
+## Forecasting \| \small Regression Components
+
+```{=tex}
+\begin{figure}
+\begin{equation*}
+\tikzmarknode{y}{\highlight{red}{$y_t$}} =
+\tikzmarknode{intercept}{\highlight{skyblue}{$\beta_0$}} +
+\tikzmarknode{trend}{\highlight{green}{$\beta_1 t$}} +
+\tikzmarknode{season}{\highlight{purple}{$\beta_2 d_{2,t} + \beta_3 d_{3,t} + \beta_4 d_{4,t}$}} +
+\tikzmarknode{error}{\highlight{orange}{$\epsilon_t$}}
+\end{equation*}
+
+\begin{tikzpicture}[overlay,remember picture,>=stealth,nodes={align=center,inner ysep=1pt},<-]
+    
+    % y
+    \path (y.north) ++ (0,1em) node[anchor=south west,color=red] (scalep){\textbf{outcome (at time \textit{t})}};
+    \draw [color=red](y.north) |- ([xshift=-0.3ex,color=red]scalep.south east);
+    
+    % intercept
+    \path (intercept.south) ++ (0,-1em) node[anchor=north east,color=skyblue] (scalep){\textbf{intercept}};
+    \draw [color=skyblue](intercept.south) |- ([xshift=-0.3ex,color=skyblue]scalep.north west);
+    
+    % trend
+    \path (trend.south) ++ (0,-1em) node[anchor=north west,color=green] (scalep){\textbf{trend}};
+    \draw [color=green](trend.south) |- ([xshift=-0.3ex,color=green]scalep.north east);
+    
+    % season
+    \path (season.south) ++ (0,-1em) node[anchor=north west,color=purple] (scalep){\textbf{season}};
+    \draw [color=purple](season.south) |- ([xshift=-0.3ex,color=purple]scalep.north east);
+    
+    % error
+    \path (error.south) ++ (0,-1em) node[anchor=north west,color=orange] (scalep){\textbf{error (at time \textit{t})}};
+    \draw [color=orange](error.south) |- ([xshift=-0.3ex,color=orange]scalep.north east);
+    
+\end{tikzpicture}
+\vspace{-1.1cm}
+\label{fig:fig4}
+\end{figure}
+```
+
+\vspace{1cm}
+
+\pause
+
+```{=tex}
+\begin{table}
+\centering
+\begin{tabular}{c c c c}
+
+\toprule
+
+ & \(\displaystyle d_{2,t} \) & \(\displaystyle d_{3,t} \) & \(\displaystyle d_{4,t} \) \\ \midrule
+
+Quarter 1 & 0 & 0 & 0 \\
+
+Quarter 2 & 1 & 0 & 0 \\
+
+Quarter 3 & 0 & 1 & 0 \\
+
+Quarter 4 & 0 & 0 & 1 \\
+
+Quarter 1 & 0 & 0 & 0 \\
+
+... & ... & ... & ... \\
+
+\bottomrule
+
+\end{tabular}
+\end{table}
+```
+## Forecasting \| \small Regression Season Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Fit linear model with trend and season
+fit_us_season <- us_prediction %>%
+  model( # model for time series
+    tslm = TSLM( # time series linear model
+      Consumption ~ trend() + # trend component
+        season() # season component
+    )
+  )
+```
+
+## Forecasting \| \small Regression Season Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Report fit
+report(fit_us_season)
+```
+
+## Forecasting \| \small Regression Season Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE, cache = TRUE}
+# Plot model
+augment(fit_us_season) %>%
+  # Plot quarter on x-axis
+  ggplot(aes(x = Quarter)) +
+  # Plot actual values
+  geom_line(aes(y = Consumption, colour = "Data")) +
+  # Plot fit values
+  geom_line(aes(y = .fitted, colour = "Fitted")) +
+  labs(
+    # No y-axis label
+    y = NULL, 
+    # Change title
+    title = "Percent change in US consumption expenditure"
+  ) +
+  # Change colors
+  scale_colour_manual(
+    values = c(
+      Data = "black", # Make data line black
+      Fitted = "orange" # Make fitted line orange
+    )
+  ) +
+  # No title for legend
+  guides(colour = guide_legend(title = NULL))
+```
+
+## Forecasting \| \small Regression Components
+
+\center What happened..?
+
+\pause
+
+\center Let's look at a beer-ter example...
+
+## Forecasting \| \small A Beer-ter Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Australian beer production
+recent_production <- aus_production %>% filter(year(Quarter) >= 1992)
+recent_production %>% autoplot(Beer) +
+  labs(y="Megalitres",title ="Australian quarterly beer production")
+```
+
+## Forecasting \| \small A Beer-ter Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Fit model
+fit_beer <- recent_production %>% model(TSLM(Beer ~ trend() + season()))
+fit_beer %>% report()
+```
+
+## Forecasting \| \small A Beer-ter Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Residuals
+fit_beer %>%
+  gg_tsresiduals()
+```
+
+## Forecasting \| \small A Beer-ter Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Plot fitted model
+augment(fit_beer) %>%
+  ggplot(aes(x = Quarter)) +
+  geom_line(aes(y = Beer, colour = "Data")) +
+  geom_line(aes(y = .fitted, colour = "Fitted")) +
+  labs(y="Megalitres",title ="Australian quarterly beer production") +
+  scale_colour_manual(values = c(Data = "black", Fitted = "#D55E00"))
+```
+
+## Forecasting \| \small A Beer-ter Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Examining seasonality
+augment(fit_beer) %>%
+  ggplot(aes(x=Beer, y=.fitted, colour=factor(quarter(Quarter)))) +
+    geom_point() +
+    labs(y="Fitted", x="Actual values", title = "Quarterly beer production") +
+    scale_colour_brewer(palette="Dark2", name="Quarter") +
+    geom_abline(intercept=0, slope=1)
+```
+
+## Forecasting \| \small A Beer-ter Example
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Forecasting prediction
+fc <- fit_beer %>% forecast
+# Plot forecast
+fc %>% autoplot(recent_production)
+```
+
+## Forecasting \| \small Regression Fit
+
+### Measures of Fit
+
+-   Adjusted R-squared: proportion of variance explained \newline
+
+\center $\bar{R^2} = 1 - (1 - R^2) \frac{T - 1}{T - k - 1}$ \newline
+
+-   Cross-validation: \newline
+
+1.  Remove time point $t$, fit model, and compute error $e^*_t = y_t - \hat{y_t}$ \newline
+
+2.  Repeat for each time point $T$ \newline
+
+3.  Compute MSE
+
+\center $MSE = \frac{\sum (\hat{y_t} - y_t)^2}{T}$ \newline
+
+## Forecasting \| \small Regression Fit
+
+### Measures of Fit
+
+-   Akaike's Information Criterion \newline
+
+\center $AIC = T \log \bigg(\frac{SSE}{T}\bigg) + 2(k+2)$ \newline
+
+\center $SSE = \sum_{t=1}^T e^2_t$ \newline
+
+-   Corrected Akaike's Information Criterion \newline
+
+\center $AIC_c = AIC + \frac{2(k+2)(k+3)}{T - k - 3}$ \newline
+
+-   Schwarz's Bayesian Information Criterion \newline
+
+\center $BIC = T \log \bigg(\frac{SSE}{T}\bigg) + (k+2) \log(T)$
+
+## Forecasting \| \small Regression Fit
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "footnotesize","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Report fit measures
+glance(fit_beer) %>%
+  select(
+    adj_r_squared, CV, AIC, AICc, BIC
+  )
+```
+
+## Forecasting \| \small Regression Considerations
+
+Dummy Variables
+
+```{=tex}
+\begin{small}
+
++ Interventions (one time): An effect that lasts only one period. Add a dummy variable with 1 at time point ($t$)
+
++ Interventions (permanent): An effect that continues. Add a dummy variable with 1 at time point ($t$) and each time point there after ($t, t_{+1}, ..., t_n$)
+
++ Number of days: Use number of days in each month as a regressor
+
++ Lags: Inclusion of previous time points to predict current time point
+
++ Holidays: Adjust placement of 1 with each year
+
++ Fourier series (alternative to season): sine and cosine based on $m$ periods (e.g., $m = 52$ for weeks in a year)
+
+\end{small}
+```
+
+## Forecasting \| \small Fourier Series
+
+\center Fourier Example
+
+## Forecasting \| \small Fourier Series
+
+Periodic seasonality can be handled using pairs of Fourier terms
+
+$$
+s_{k}(t) = \sin\left(\frac{2\pi k t}{m}\right)\qquad c_{k}(t) = \cos\left(\frac{2\pi k t}{m}\right)
+$$
+$$
+y_t = a + bt + \sum_{k=1}^K \left[\alpha_k s_k(t) + \beta_k c_k(t)\right] + \varepsilon_t
+$$
+
++   Every periodic function can be approximated by sums of sin and cos terms for large enough $K$.
+
++   Choose $K$ by minimizing AICc
+
++   Called "harmonic regression"
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+TSLM(y ~ trend() + fourier(K))
+```
+
+## Forecasting \| \small Fourier Series
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = FALSE, eval = TRUE}
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  paste0("\n \\", "tiny","\n\n", x, "\n\n \\normalfont")
+})
+```
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Harmonic regression
+fourier_beer <- recent_production %>%
+  model( # model for time series
+    tslm = TSLM( # time series linear model
+      Beer ~ trend() + # trend component
+        fourier(K = 2) # harmonic regression
+    )
+  )
+
+# Report fit
+report(fourier_beer)
+```
+
+## Forecasting \| \small Fourier Series
+
+Selecting a model:
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE}
+# Fit multiple models
+fit <- recent_production %>%
+  model(
+    K1 = TSLM(Beer ~ trend() + fourier(K = 1)),
+    K2 = TSLM(Beer ~ trend() + fourier(K = 2)),
+    K3 = TSLM(Beer ~ trend() + fourier(K = 3)),
+    K4 = TSLM(Beer ~ trend() + fourier(K = 4)),
+    K5 = TSLM(Beer ~ trend() + fourier(K = 5)),
+    K6 = TSLM(Beer ~ trend() + fourier(K = 6))
+  )
+
+# Check fit
+glance(fit) %>% select(.model, r_squared, adj_r_squared, AICc)
+```
+
+## Forecasting \| \small Fourier Series
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4, cache = TRUE}
+# Plot fitted model
+augment(fourier_beer) %>%
+  ggplot(aes(x = Quarter)) +
+  geom_line(aes(y = Beer, colour = "Data")) +
+  geom_line(aes(y = .fitted, colour = "Fitted")) +
+  labs(y="Megalitres",title ="Australian quarterly beer production") +
+  scale_colour_manual(values = c(Data = "black", Fitted = "#D55E00"))
+```
+
+## Residuals
+
+\center Residual Diagnostics
+
+## Residuals \| \small Computing
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = TRUE, fig.height = 4}
+# Plot fitted model
+fourier_beer %>%
+  gg_tsresiduals()
+```
+
+## Residuals \| \small Interpreting
+
++   $\epsilon_t$ have zero mean, uncorrelated, and uncorrelated with each $x_{k, t}$
+
++   Normal distribution ($\epsilon_t \sim N(0, \sigma^2)$) \textbf{useful} for prediction intervals and statistical tests
+
++   If there is a pattern:
+    
+    + predictor used: possible \textit{nonlinear} relationship between residual and predictor
+    + predictor \textit{not} used: predictor should be added to model
+    
+## Reading and Homework
+
+\center Reading and Homework
+
+## Reading and Homework
+
+1.    Read Chapter 7 in FPP3 (7.8 and 7.9 optional) \newline
+
+2.    Use and complete  `Week2-Homework.Rmd`
+
+3.    Save file: `[LASTNAME]_[FIRSTNAME]_Week2-Homework.Rmd`
+
+4.    Turn in `.Rmd` or `HTML` over Brightspace by Sunday (04.09.2022)
+
+
+
+

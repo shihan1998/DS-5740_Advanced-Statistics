@@ -8,7 +8,7 @@ lm_new_data <- function(
     h, # number of forecasts
     type = c(
       "random", "window",
-      "probabilistic"
+      "probabilistic", "arima"
     ), # calculation of values
     iterations = 10, # number of iterations
     window_width = 4, # moving average width (window only)
@@ -82,7 +82,7 @@ lm_new_data <- function(
     
   }else if(type == "probabilistic"){
     
-    # Random values from uniform distribution
+    # Random values based on frequencies
     for(i in 1:h){
       
       # Populate new data
@@ -105,6 +105,32 @@ lm_new_data <- function(
         ), na.rm = TRUE
       )
     
+    }
+    
+  }else if(type == "arima"){
+    
+    # Values based on ARIMA
+    for(i in 1:ncol(coefficient_matrix)){
+      
+      # Select data
+      select_df <- df[,c(
+        "time",
+        colnames(coefficient_matrix)[i]
+      )]
+      
+      # Obtain model
+      arima_fit <- select_df %>%
+        fabletools::model(
+          fable::ARIMA()
+        )
+      
+      # Obtain forecasts
+      arima_forecast <- arima_fit %>% 
+        fabletools::forecast(h = h)
+      
+      # Populate new data
+      new_matrix[,i] <- arima_forecast$.mean
+      
     }
     
   }

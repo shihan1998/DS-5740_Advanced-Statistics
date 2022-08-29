@@ -1,0 +1,181 @@
+---
+title: "Week 2 Homework"
+author: "FIRSTNAME LASTNAME"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, cache = TRUE)
+library(fpp3)
+```
+
+## FPP3 7.10 Problems: 1 (a-e), 2 (a-d), 4 (a-c)
+
+### 1.
+
+Half-hourly electricity demand for Victoria, Australia is contained in `vic_elec`. Extract the January 2014 electricity demand, and aggregate this data to daily with daily total demands and maximum temperatures.
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Code block found in book
+jan_vic_elec <- vic_elec %>%
+     filter(yearmonth(Time) == yearmonth("2014 Jan")) %>%
+     index_by(Date = as_date(Time)) %>%
+     summarise(Demand = sum(Demand), Temperature = max(Temperature))
+```
+
+> Use ">" symbol to quote your writing when there are parts of the homework that require you to explain something (you can delete this quoted chunk)
+
+### a. Plot the data and find the regression model for Demand with temperature as an explanatory variable. Why is there a positive relationship?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Plot data
+
+```
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Fit model
+
+```
+
+> Answer "Why is there a positive relationship?"
+
+### b. Produce a residual plot. Is the model adequate? Are there any outliers or influential observations?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Plot residuals
+
+```
+
+> Answer "Is the model adequate?" and "Are there any outliers?" See 5.3 and 5.4 for of FPP3 for extra guidance
+
+### c. Use the model to forecast the electricity demand that you would expect for the next day if the maximum temperature was $15^\circ\text{C}$ and compare it with the forecast if the with maximum temperature was $35^\circ\text{C}$. Do you believe these forecasts?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Create new future scenarios
+
+# Forecast new scenarios
+
+```
+
+> Answer "Do you believe these forecasts?"
+
+### d. Give prediction intervals for your forecasts.
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Use `%>% hilo() %>% select(-.model)`
+# with your forecast object
+
+```
+
+### e. Plot Demand vs Temperature for all of the available data in `vic_elec` aggregated to daily total demand and maximum temperature. What does this say about your model?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# This code is provided for you
+vic_elec %>% # full dataset
+  index_by(Date = as_date(Time)) %>% # index by time
+  summarise( # summarize demand and temperature
+    Demand = sum(Demand),
+    Temperature = max(Temperature)
+  ) %>%
+  ggplot(aes(x = Temperature, y = Demand)) +
+  geom_point() # scatterplot
+```
+
+> Explain the pattern that you see and answer "What does this say about your model?"
+
+### 2.
+
+Data set `olympic_running` contains the winning times (in seconds) in each Olympic Games sprint, middle-distance and long-distance track events from 1896 to 2016.
+
+### a. Plot the winning time against the year. Describe the main features of the plot.
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Plot using
+# x = Year, y = Time, color = Sex
+# `facet_wrap` with Length
+
+```
+
+> Describe the features (e.g., any patterns?)
+
+### b. Fit a regression (trend) line to the data. Obviously the winning times have been decreasing, but at what *average* rate per year?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Fit time series linear model
+
+```
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = FALSE, eval = TRUE, results = "asis"}
+# Code is provide for you
+tidy(fit) %>% # Name your fit object "fit"
+  filter(term == "trend()") %>% # Hint for model to fit: "trend()"
+  glue::glue_data("The {Sex}'s {Length} running time has been {ifelse(estimate<0, 'decreasing', 'increasing')} by an average of {abs(round(estimate/4, 3))} seconds each year.<br>")
+```
+
+### c. Plot the residuals against the year. What does this indicate about the suitability of the fitted line?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Code is provide for you
+augment(fit) %>%
+  ggplot(aes(x = Year, y = .innov, colour = Sex)) +
+  geom_line() +
+  geom_point(size = 1) +
+  facet_wrap(~Length, scales = "free_y", nrow = 2) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Dark2") +
+  theme(legend.position = "bottom", legend.title = element_blank())
+```
+
+> Answer "What does this indicate about the suitability of the fitted line?" Hint: Do the residuals follow any pattern? A normal distribution?
+
+### d. Predict the winning time for each race in the 2020 Olympics. Give a prediction interval for your forecasts. What assumptions have you made in these calculations? Hint: Do the times seem reasonable?
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Code is provide for you
+fit %>%
+  forecast(h = 1) %>%
+  mutate(PI = hilo(Time, 95)) %>%
+  select(-.model)
+```
+
+> Answer "What assumptions have you made in these calculations?" Comment on whether the times are reasonable.
+
+### 4.
+
+The data set `souvenirs` concerns the monthly sales figures of a shop which opened in January 1987 and sells gifts, souvenirs, and novelties. The shop is situated on the wharf at a beach resort town in Queensland, Australia. The sales volume varies with the seasonal population of tourists. There is a large influx of visitors to the town at Christmas and for the local surfing festival, held every March since 1988. Over time, the shop has expanded its premises, range of products, and staff.
+
+### a. Produce a time plot of the data and describe the patterns in the graph. Identify any unusual or unexpected fluctuations in the time series.
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Plot `souvenirs` data
+# Hint: plot `Sales`
+
+```
+
+> Discuss any patterns you see in the data
+
+### b. Explain why it is necessary to take logarithms of these data before fitting a model.
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Taking logarithms of the data
+souvenirs %>% autoplot(log(Sales))
+```
+
+> Explain what differences you see from the first plot
+
+### c. Fit a regression model to the logarithms of these sales data with a linear trend, seasonal dummies and a "surfing festival" dummy variable.
+
+```{r, message = FALSE, warning = FALSE, comment = NA, echo = TRUE, eval = TRUE}
+# Data with festival is created for you
+souvenirs_festival <- souvenirs %>%
+  mutate(festival = month(Month) == 3 & year(Month) != 1987)
+
+# Fit model with trend (log), season, and festival
+
+# Plot fitted model with `souvenirs` data
+# Hint: plot `Sales`
+
+```
+
+
+
