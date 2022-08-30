@@ -18,6 +18,10 @@ lm_new_data <- function(
   # Obtain times
   times <- tsibble::new_data(df, h)
   
+  # Check for filling time series
+  df <- df %>%
+    tsibble::fill_gaps()
+  
   # Obtain outcome variable
   outcome <- as.character(model$tslm[[1]]$response[[1]])
   
@@ -34,6 +38,9 @@ lm_new_data <- function(
   )
   colnames(new_matrix) <- colnames(coefficient_matrix)
   row.names(new_matrix) <- 1:nrow(new_matrix)
+  
+  # Remove missing data
+  coefficient_matrix <- na.omit(coefficient_matrix)
   
   # Set seed
   set.seed(seed)
