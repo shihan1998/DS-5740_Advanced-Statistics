@@ -6,10 +6,9 @@ lm_new_data <- function(
     model, # input model
     df, # input data
     h, # number of forecasts
-    type = c(
-      "random", "window",
-      "probabilistic", "arima"
-    ), # calculation of values
+    type = c( # calculation of values
+      "random", "window", "arima"
+    ),
     iterations = 10, # number of iterations
     window_width = 4, # moving average width (window only)
     seed = 1234 # set seed from random data 
@@ -42,46 +41,6 @@ lm_new_data <- function(
   # Produce values
   if(type == "random"){
     
-    # Random values from uniform distribution
-    for(i in 1:h){
-      
-      # Populate new data
-      new_matrix[i,] <- rowMeans(
-        replicate(
-          n = iterations,
-          {
-            apply(coefficient_matrix, 2, function(x){
-              runif(1, min = min(x), max = max(x))
-            })
-          }
-        ), na.rm = TRUE
-      )
-      
-      # Update range of coefficients
-      coefficient_matrix <- rbind(coefficient_matrix, new_matrix[i,])
-      
-    }
-    
-  }else if(type == "window"){
-    
-    # Values based on last four values
-    for(i in 1:h){
-      
-      # Obtain last values in window
-      last_values <- coefficient_matrix[
-        (nrow(coefficient_matrix) - h - window_width + 1):(nrow(coefficient_matrix) - h),
-      ]
-      
-      # Populate new data
-      new_matrix[i,] <- colMeans(last_values, na.rm = TRUE)
-      
-      # Update range of coefficients
-      coefficient_matrix <- rbind(coefficient_matrix, new_matrix[i,])
-      
-    }
-    
-  }else if(type == "probabilistic"){
-    
     # Random values based on frequencies
     for(i in 1:h){
       
@@ -104,7 +63,25 @@ lm_new_data <- function(
           }
         ), na.rm = TRUE
       )
+      
+    }
     
+  }else if(type == "window"){
+    
+    # Values based on last four values
+    for(i in 1:h){
+      
+      # Obtain last values in window
+      last_values <- coefficient_matrix[
+        (nrow(coefficient_matrix) - h - window_width + 1):(nrow(coefficient_matrix) - h),
+      ]
+      
+      # Populate new data
+      new_matrix[i,] <- colMeans(last_values, na.rm = TRUE)
+      
+      # Update range of coefficients
+      coefficient_matrix <- rbind(coefficient_matrix, new_matrix[i,])
+      
     }
     
   }else if(type == "arima"){
