@@ -1,0 +1,79 @@
+---
+title: "Project 1: Stock Forecasting"
+author: "FIRSTNAME LASTNAME"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, cache = TRUE)
+library(fpp3)
+```
+
+## [NAME OF YOUR STOCK HERE] ([TICKER HERE])
+
+## Obtain stock data
+
+```{r, comment = NA, warning = FALSE, message = FALSE, echo = TRUE, eval = FALSE}
+# Load {tidyquant}
+library(tidyquant)
+
+# Get data
+getSymbols(
+  "DE", # ticker symbol
+  from = "2019-06-15", # start date
+  to = "2022-06-15", # end date
+  auto.assign = TRUE # assign variable 'XOM'
+)
+```
+
+<!-- This is a comment and will not show up in your document
+
+The following is a general template for your first project to forecast a stock of your choice. You may choose to follow this template. Each section however need not be separated and you can present your results in a write-up where some components may be intermixed. This approach might make the most sense (e.g., talking about forecasting considerations with model selection and interpretation before talking about decomposition).
+
+-->
+
+## Forecasting Considerations
+
+<!-- For full points:
+
+Additional factors were considered thoroughly. One or more additional factors were modeled.
+
+-->
+
+## Decomposition
+
+<!-- For full points:
+
+Trend and seasonality were decomposed and their appropriateness were discussed. Model parameters were reported. Visualizations were used.
+
+-->
+
+## Model Selection
+
+<!-- For full points:
+
+At least two different models were considered. Model fit and residual diagnostics were thoroughly discussed (for all models).
+
+-->
+
+## Forecast
+
+<!-- For full points:
+
+At least one forecast was made using actual data and another using a forecasting method. Forecasts were visualized and confidence bands were interpreted. Point and distributional fit measures were discussed for both.
+
+-->
+
+## Interpretation
+
+<!-- For full points:
+
+Interpretation of the forecast was based on past and present knowledge of the stock and how it's situated in the investment ecosystem. Differences between forecast and actual are discussed based on current knowledge or events.
+
+-->
+
+
+
+
+
+
