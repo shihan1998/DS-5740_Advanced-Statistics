@@ -9,7 +9,7 @@ The majority of the course covers time series forecasting to use past performanc
 ## Instructor
 [Alexander P. Christensen, PhD](https://alexchristensen.github.io/) <br>
 Assistant Professor <br>
-1210 21st Ave S, Room 221 <br>
+[Hobbs Hall](https://goo.gl/maps/cSTbPxJhsjYYLWnX8), Room 221 <br>
 [alexander.christensen@vanderbilt.edu](mailto:alexander.christensen@vanderbilt.edu) <br>
 Office Hour: Tuesdays, 2-3pm (Hobbs Building, Room 221)
 
